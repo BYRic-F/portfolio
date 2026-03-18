@@ -143,19 +143,68 @@ if selected == "Accueil":
 
 elif selected == "Projets Python":
     st.markdown('<h1 class="main-title" style="text-align:left; font-size: 3rem !important;">Data Solutions Python</h1>', unsafe_allow_html=True)
-    tabs = st.tabs(["🛡️ Anti-Fraude", "🔍 Insee Prospector", "🎬 Movie Reco"])
+    tabs = st.tabs(["🛡️ Détection de fraudes", "🔍 Insee Prospector", "🎬 Movie Reco"])
     
     with tabs[0]:
-        display_project_card(
-            "Anti-Fraude Bancaire Temps Réel",
-            "Recall de 87% : Une protection active contre la fraude sans dégradation de l'expérience client.",
-            "Traitement de flux financiers critiques pour une institution de Mobile Money.",
-            "Identifier les anomalies parmi des millions de transactions tout en garantissant une latence < 100ms.",
-            "Pipeline MLOps complet avec XGBoost, FastAPI et Redis. Monitoring via Prometheus/Grafana.",
-            ["Python", "XGBoost", "FastAPI", "MLOps", "Redis"],
-            "data/images/Python_detection_fraudes",
-            github_url="https://github.com/BYRic-F"
-        )
+        st.markdown('<div class="project-header"><h2>Détection de fraudes en temps réel</h2></div>', unsafe_allow_html=True)
+
+        # Storytelling Hook
+        st.markdown("""
+        <div class="insight-header">
+            <h4>Le Défi Business</h4>
+            <p style="margin:0; font-size: 1.15rem; color: #0f172a; font-weight: 500;">
+                Stopper une hémorragie financière de <b>plusieurs centaines de millions d'euros par an</b> due à la fraude transactionnelle, 
+                tout en garantissant une expérience fluide pour des millions d'utilisateurs quotidiens.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+        col_text, col_viz = st.columns([1.2, 1], gap="large")
+
+        with col_text:
+            st.markdown('<p class="section-title">Performance & Impact</p>', unsafe_allow_html=True)
+            # Table des métriques
+            st.markdown("""
+            | Métrique | Score | Impact |
+            | :--- | :--- | :--- |
+            | **Recall (Le Bouclier)** | **87 %** | Interception de la grande majorité des fraudes. |
+            | **Spécificité (La Fluidité)** | **99,4 %** | Moins de 1% de clients honnêtes impactés. |
+            | **Latence (La Vitesse)** | **< 100ms** | Décision instantanée, transparence totale. |
+            """)
+
+            st.markdown('<p class="section-title">L\'Approche Technique (MLOps)</p>', unsafe_allow_html=True)
+            st.markdown("""
+            Plutôt qu'un modèle statique, nous avons conçu une **architecture vivante et auto-adaptative** :
+            - **Ingestion** : Pipeline asynchrone via **FastAPI** et buffer **Redis** pour une résilience totale.
+            - **Cerveau prédictif** : Modélisation **XGBoost** optimisée pour le déséquilibre de classes massif (0.13% de fraudes).
+            - **Automatisation & Model Gating** : Orchestration via **Prefect**. Le système se réentraîne sur **BigQuery** et ne déploie la nouvelle version que si elle surpasse le record de performance précédent.
+            """)
+
+            # Tags & Buttons
+            st.markdown('<p class="section-title">Technologies</p>', unsafe_allow_html=True)
+            tags = ["Python", "XGBoost", "FastAPI", "MLOps", "Redis", "BigQuery", "Prefect", "Docker", "Grafana", "BigQuery"]
+            tag_html = "".join([f'<span class="tag">{tag}</span>' for tag in tags])
+            st.markdown(f'<div style="margin-bottom: 25px;">{tag_html}</div>', unsafe_allow_html=True)
+            st.write(" ")
+
+            btn_col1, btn_col2 = st.columns([1, 1])
+            st.write(" ")
+            with btn_col1:
+                st.markdown(f'<a href="https://github.com/BYRic-F/projet_fraude_cb" target="_blank" class="github-btn" style="width:100%; text-align:center;">Consulter le code</a>', unsafe_allow_html=True)
+            with btn_col2:
+                st.markdown(f'<a href="https://www.youtube.com/watch?v=oukKv2ohZn0" target="_blank" class="github-btn" style="width:100%; text-align:center;">Démonstration Vidéo</a>', unsafe_allow_html=True)
+
+        with col_viz:
+            # Affichage des GIFs avec la disposition d'origine (un grand, les autres en dessous)
+            img_path = "data/images/Python_detection_fraudes"
+            if os.path.exists(img_path):
+                st.image(os.path.join(img_path, "page_fraude.gif"), caption="Pilotage Temps Réel (Streamlit)", use_container_width=True)
+                
+                sub_cols = st.columns(2)
+                with sub_cols[0]:
+                    st.image(os.path.join(img_path, "grafanaa.gif"), caption="Monitoring (Grafana)", use_container_width=True)
+                with sub_cols[1]:
+                    st.image(os.path.join(img_path, "prefect2 (1).gif"), caption="MLOps (Prefect)", use_container_width=True)
         
     with tabs[1]:
         display_project_card(

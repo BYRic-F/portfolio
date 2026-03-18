@@ -121,12 +121,18 @@ elif selected == "Projets Python":
             Plutôt qu'un modèle statique, nous avons conçu une **architecture vivante et auto-adaptative** :
             - **Ingestion** : Pipeline asynchrone via **FastAPI** et buffer **Redis** pour une résilience totale.
             - **Cerveau prédictif** : Modélisation **XGBoost** optimisée pour le déséquilibre de classes massif (0.13% de fraudes).
-            - **Automatisation & Model Gating** : Orchestration via **Prefect**. Le système se réentraîne sur **BigQuery** et ne déploie la nouvelle version que si elle surpasse le record de performance précédent.
+            - **Pipeline MLOps & Model Gating** : Orchestration du cycle de vie via **Prefect**. Ingestion automatisée depuis **BigQuery** et réentraînement périodique. Déploiement sécurisé par une stratégie de Champion-Challenger : la nouvelle version n'est promue en production que si elle surpasse le record de Recall et F1-score historique
+            """)
+
+            st.markdown('<p class="section-title">Axes d\'amélioration</p>', unsafe_allow_html=True)
+            st.markdown("""
+            - **Migration Cloud** : Déploiement de l'architecture sur **GCP** (Cloud Run / GKE) pour une scalabilité horizontale réelle et une haute disponibilité.
+            - **Modern Data Stack** : Intégration de **dbt** pour orchestrer et versionner les transformations de données dans BigQuery, garantissant la qualité (tests automatisés) et la lignée des données.
             """)
 
             # Tags & Buttons
             st.markdown('<p class="section-title">Technologies</p>', unsafe_allow_html=True)
-            tags = ["Python", "XGBoost", "FastAPI", "MLOps", "Redis", "BigQuery", "Prefect", "Docker", "Grafana", "BigQuery"]
+            tags = ["Python", "XGBoost", "FastAPI", "MLOps", "Redis", "BigQuery", "Prefect", "Docker", "Grafana"]
             tag_html = "".join([f'<span class="tag">{tag}</span>' for tag in tags])
             st.markdown(f'<div style="margin-bottom: 25px;">{tag_html}</div>', unsafe_allow_html=True)
             st.write(" ")
@@ -181,6 +187,11 @@ elif selected == "Projets Python":
             - **Nomenclature NAF 2008** : Scan intelligent de **1700+ codes NAF** pour garantir une compatibilité à 100% avec l'API Sirene réelle.
             - **Batching intelligent** : Découpage dynamique des requêtes pour les zones denses (Paris, Lyon, Marseille) afin d'éviter la saturation de l'API.
             - **Optimisation mobile (OSINT)** : Transformation automatique des numéros en **liens cliquables (tel:)** pour une prospection directe sur smartphone.
+            """)
+
+            st.markdown('<p class="section-title">Axes d\'amélioration</p>', unsafe_allow_html=True)
+            st.markdown("""
+            - **Enrichissement Multi-Sources** : Interfaçage avec le **MCP Data.gouv** pour croiser les données Insee avec des indicateurs financiers (bilans simplifiés), juridiques (certifications RSE) et administratifs (subventions), offrant un ciblage 360° aux recruteurs.
             """)
 
             # Tags & Buttons
@@ -240,6 +251,12 @@ elif selected == "Projets Python":
             - **Hybride KNN/SVD** : Combinaison de la similarité cosinus sur les résumés (**SpaCy**) et de la décomposition en valeurs singulières (**Surprise SVD**).
             - **Optimisation DuckDB** : Traitement SQL haute performance pour gérer des bases de données lourdes sans saturation RAM.
             - **Résolution du "Cold Start"** : Interface d'onboarding interactive imposant la notation de 5 films dès l'inscription pour alimenter l'algorithme SVD et garantir des recommandations personnalisées immédiates.
+            """)
+
+            st.markdown('<p class="section-title">Axes d\'amélioration</p>', unsafe_allow_html=True)
+            st.markdown("""
+            - **Infrastructure relationnelle** : Migration de la gestion des utilisateurs (actuellement sur Google Sheets) vers une base de données **SQL (PostgreSQL)** pour renforcer la sécurité des données et accroître la rapidité des requêtes.
+            - **Gestion d'identité avancée** : Implémentation d'un système d'authentification robuste incluant la récupération de mot de passe et d'identifiants perdus.
             """)
 
             # Tags & Buttons

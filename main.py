@@ -476,7 +476,7 @@ elif selected == "Projets Power BI":
 
             btn_col1, btn_col2 = st.columns([1, 1])
             with btn_col1:
-                st.markdown(f'<a href="https://github.com/BYRic-F" target="_blank" class="github-btn" style="width:100%; text-align:center;">Consulter le code</a>', unsafe_allow_html=True)
+                st.markdown(f'<a href="https://github.com/BYRic-F/PowerBi_acces_eau" target="_blank" class="github-btn" style="width:100%; text-align:center;">Consulter le code</a>', unsafe_allow_html=True)
             with btn_col2:
                 pdf_path = "data/presentations_pdf/Acces_eau/Présentation_projet_eau.pdf"
                 if os.path.exists(pdf_path):
@@ -520,7 +520,7 @@ elif selected == "Projets Power BI":
         with col_text:
             st.markdown('<p class="section-title">Impact Business & Trésorerie</p>', unsafe_allow_html=True)
             st.markdown("""
-            | Axe d'Analyse | Résultat clé | Valeur ajoutée |
+            | Axe d'analyse | Résultat clé | Valeur ajoutée |
             | :--- | :--- | :--- |
             | **Finances** | **Optimisation trésorerie** | Identification des problèmatiques de paiement. |
             | **Ventes** | **Fidélisation** | Calcul automatisé du taux de retour client par région et des performances produits|
@@ -592,29 +592,42 @@ elif selected == "Mon CV":
     
     if cv_files:
         cv_path = os.path.join(cv_dir, cv_files[0])
+        col_left, col_cv, col_right = st.columns([0.75, 1.5, 0.75])
         
-        with open(cv_path, "rb") as f:
-            pdf_bytes = f.read()
-        
-        col_btn1, col_btn2 = st.columns([1, 1])
-        with col_btn1:
-            st.download_button(
-                label="📥 Télécharger le CV (PDF)",
-                data=pdf_bytes,
-                file_name="CV_Frédéric_Bayen.pdf",
-                mime="application/pdf"
-            )
-        
-        doc = fitz.open(cv_path)
-        
-        # Container stylisé pour le CV
-        st.markdown('<div style="margin-top: 30px; border: 1px solid #e2e8f0;">', unsafe_allow_html=True)
-        for page in doc:
-            pix = page.get_pixmap(matrix=fitz.Matrix(2, 2))
-            img_data = pix.tobytes("png")
-            st.image(img_data, use_container_width=True)
-        st.markdown('</div>', unsafe_allow_html=True)
-        doc.close()
+        with col_cv:
+            with open(cv_path, "rb") as f:
+                pdf_bytes = f.read()
+            st.markdown("""
+            <div style="background: #f8fafc; padding: 2rem; border-radius: 4px; border: 1px solid #e2e8f0; margin-bottom: 2rem; text-align: center;">
+                <h3 style="margin-top:0; color: #0f172a;">Prêt pour de nouveaux défis</h3>
+                <p style="color: #64748b; font-size: 1.1rem; max-width: 600px; margin: 0 auto 1.5rem auto;">
+                    Mon profil combine expertise technique (Python/SQL) et vision stratégique BI. 
+                    N'hésitez pas à télécharger mon CV complet ou à me contacter pour discuter de vos projets.
+                </p>
+            </div>
+            """, unsafe_allow_html=True)
+            
+            # Affichage du CV
+            doc = fitz.open(cv_path)
+            st.markdown('<div style="margin-top: 20px; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);">', unsafe_allow_html=True)
+            for page in doc:
+                pix = page.get_pixmap(matrix=fitz.Matrix(1.3, 1.3))
+                img_data = pix.tobytes("png")
+                st.image(img_data, use_container_width=True)
+            st.markdown('</div>', unsafe_allow_html=True)
+            
+            st.write(" ")
+            # Micro-ajustement pour un centrage visuel parfait du bouton
+            btn_col_left, btn_col_mid, btn_col_right = st.columns([1.1, 1, 0.9])
+            with btn_col_mid:
+                st.download_button(
+                    label="Télécharger le CV complet (PDF)", 
+                    data=pdf_bytes, 
+                    file_name="CV_Frédéric_Bayen.pdf", 
+                    mime="application/pdf", 
+                    use_container_width=True
+                )
+            doc.close()
 
 # Footer
-st.markdown(f'<div class="footer-text">Frédéric Bayen • Data Strategy Expert • 2026<br>Propulsé par Streamlit & Expertise</div>', unsafe_allow_html=True)
+st.markdown(f'<div class="footer-text">Frédéric Bayen • Data Strategy • 2026<br>Propulsé par Streamlit</div>', unsafe_allow_html=True)

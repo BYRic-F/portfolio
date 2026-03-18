@@ -141,22 +141,53 @@ h1, h2, h3 {
     background: transparent;
     color: var(--primary) !important;
 }
+/* Standardize Buttons (GitHub & Download) */
+.github-btn, .stDownloadButton button {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: auto !important;
+    min-width: 180px !important;
+    background: transparent !important;
+    color: var(--primary) !important;
+    border: 1px solid var(--primary) !important;
+    border-radius: 4px !important;
+    transition: all 0.2s ease !important;
+    height: 42px !important;
+    cursor: pointer !important;
+}
+
+.github-btn, .stDownloadButton button p {
+    font-size: 0.8rem !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    margin: 0 !important;
+    line-height: 1 !important;
+    color: var(--primary) !important;
+}
+
+.stDownloadButton button p {
+    border: none !important; /* Ensure no internal border */
+    padding: 0 1.5rem !important;
+}
 
 .github-btn {
-    background: transparent;
+    padding: 0 1.5rem !important;
+}
+
+.github-btn:hover, .stDownloadButton button:hover {
+    background: var(--bg-subtle) !important;
+    border-color: var(--primary) !important;
+}
+
+.github-btn:hover, .stDownloadButton button:hover {
+    background: var(--bg-subtle) !important;
+    border-color: var(--primary) !important;
     color: var(--primary) !important;
-    border: 1px solid var(--primary);
-    padding: 0.6rem 1.2rem;
-    border-radius: 4px;
-    font-size: 0.85rem;
-    font-weight: 500;
-    text-decoration: none !important;
 }
 
-.github-btn:hover {
-    background: var(--bg-subtle);
-}
-
+/* Hide Streamlit elements */
 /* Tabs Styling - Option A: Pills (Modern & Technical) */
 .stTabs [data-baseweb="tab-list"] {
     gap: 12px;

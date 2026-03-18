@@ -153,7 +153,7 @@ elif selected == "Projets Python":
         <div class="insight-header">
             <h4>Le Défi Business</h4>
             <p style="margin:0; font-size: 1.15rem; color: #0f172a; font-weight: 500;">
-                Stopper une hémorragie financière de <b>plusieurs centaines de millions d'euros par an</b> due à la fraude transactionnelle, 
+                Stopper une hémorragie financière de <b>plusieurs centaines de millions de Shillings kényans par an</b> due à la fraude transactionnelle, 
                 tout en garantissant une expérience fluide pour des millions d'utilisateurs quotidiens.
             </p>
         </div>
@@ -167,9 +167,9 @@ elif selected == "Projets Python":
             st.markdown("""
             | Métrique | Score | Impact |
             | :--- | :--- | :--- |
-            | **Recall (Le Bouclier)** | **87 %** | Interception de la grande majorité des fraudes. |
-            | **Spécificité (La Fluidité)** | **99,4 %** | Moins de 1% de clients honnêtes impactés. |
-            | **Latence (La Vitesse)** | **< 30ms** | Décision instantanée, transparence totale. |
+            | **Recall (Le bouclier)** | **87 %** | Interception de la grande majorité des fraudes. |
+            | **Spécificité (La fluidité)** | **99,4 %** | Moins de 1% de clients honnêtes impactés. |
+            | **Latence (La vitesse)** | **< 30ms** | Décision instantanée, transparence totale. |
             """)
 
             st.markdown('<p class="section-title">L\'Approche Technique (MLOps)</p>', unsafe_allow_html=True)
@@ -261,10 +261,10 @@ elif selected == "Projets Python":
                 with sub_cols[0]:
                     st.image(os.path.join(img_path, "Page_accueil1.png"), caption="Interface d'accueil & export CRM", use_container_width=True)
                 with sub_cols[1]:
-                    st.image(os.path.join(img_path, "Page_graphique2.png"), caption="Analyses géographiques & ectorielles", use_container_width=True)
+                    st.image(os.path.join(img_path, "Page_graphique2.png"), caption="Analyses géographiques & sectorielles", use_container_width=True)
 
     with tabs[2]:
-        st.markdown('<div class="project-header"><h2>Système de recommandation hybride (Content & Collaborative)</h2></div>', unsafe_allow_html=True)
+        st.markdown('<div class="project-header"><h2>Système de recommandation hybride (Content & collaborative)</h2></div>', unsafe_allow_html=True)
         
         # Storytelling Hook
         st.markdown("""
@@ -306,9 +306,9 @@ elif selected == "Projets Python":
             
             btn_col1, btn_col2 = st.columns([1, 1])
             with btn_col1:
-                st.markdown(f'<a href="https://github.com/BYRic-F" target="_blank" class="github-btn" style="width:100%; text-align:center;">Consulter le code</a>', unsafe_allow_html=True)
+                st.markdown(f'<a href="https://github.com/BYRic-F/project_reco_movie_streamlit" target="_blank" class="github-btn" style="width:100%; text-align:center;">Consulter le code</a>', unsafe_allow_html=True)
             with btn_col2:
-                st.markdown(f'<a href="https://byric-f-project-reco-movie-streamlit-app-3pm0kb.streamlit.app/" target="_blank" class="github-btn" style="width:100%; text-align:center;">Tester l\'application</a>', unsafe_allow_html=True)
+                st.markdown(f'<a href="https://byric-f-project-reco-movie-streamlit-app-3pm0kb.streamlit.app/" target="_blank" class="github-btn" style="width:100%; text-align:center;">Accéder à l\'application</a>', unsafe_allow_html=True)
 
         with col_viz:
             # Affichage des images (GIF en principal, screenshots en dessous)
@@ -327,16 +327,80 @@ elif selected == "Projets Power BI":
     tabs = st.tabs(["OPTIMA CYCLES", "GAMING INTELLIGENCE", "MISSION HUMANITAIRE", "PILOTAGE 360°"])
     
     with tabs[0]:
-        display_project_card(
-            "Optima Cycles - Étude d'Implantation",
-            "Stratégie validée : Ouverture en Californie en Mars. Focus sur le segment 35-64 ans.",
-            "Analyse pré-ouverture pour un nouveau point de vente physique.",
-            "Déterminer la zone de chalandise et la période d'ouverture la plus rentable.",
-            "Analyse de saisonnalité et profilage démographique des acheteurs de vélos haut de gamme.",
-            ["Power BI", "Market Analysis", "Retail"],
-            "data/images/Power_bi_Optima_Cycles",
-            pdf_path="data/presentations_pdf/Optima_cycle/Power_Point_Presentation.pdf"
-        )
+        st.markdown('<div class="project-header"><h2>Optima Cycles - Étude d\'implantation</h2></div>', unsafe_allow_html=True)
+        
+        # Storytelling Hook
+        st.markdown("""
+        <div class="insight-header">
+            <h4>Vision Stratégique</h4>
+            <p style="margin:0; font-size: 1.15rem; color: #0f172a; font-weight: 500;">
+                Valider l'ouverture d'un point de vente physique par la donnée : 
+                <b>Ciblage Californie</b>, mois de <b>Mars</b>, et focus sur le segment <b>35-64 ans</b>.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+        col_text, col_viz = st.columns([1.2, 1], gap="large")
+        
+        with col_text:
+            st.markdown('<p class="section-title">Indicateurs de Performance</p>', unsafe_allow_html=True)
+            st.markdown("""
+            | KPI | Valeur | Impact Stratégique |
+            | :--- | :--- | :--- |
+            | **Profit Global** | **$6.0 M** | Performance robuste sur le marché californien. |
+            | **Taux de Marge** | **44,0 %** | Rentabilité élevée sur les produits choisis. |
+            | **Moteur de Profit** | **56,8 %** | Part du profit généré par le segment 35-64 ans. |
+            """)
+
+            st.markdown('<p class="section-title">Piliers de l\'Étude</p>', unsafe_allow_html=True)
+            st.markdown("""
+            Une recommandation d'investissement basée sur trois axes d'optimisation :
+            - **Saisonnalité & timing** : Ouverture stratégique en Mars pour capter le pic annuel de rentabilité printanier.
+            - **Optimisation du catalogue** : Rationalisation du stock (2 modèles de vélos sur 3 retenus et uniquement une sélection d'accessoires) pour maximiser la rotation de trésorerie.
+            - **Ciblage démographique** : Identification précise du profil client "moteur" pour orienter les campagnes marketing.
+            """)
+
+            st.markdown('<p class="section-title">Rigueur d\'Analyste</p>', unsafe_allow_html=True)
+            st.markdown("""
+            *   **Agilité** : Étude complète réalisée en **8 heures**, prouvant une capacité de réaction rapide pour les décideurs.
+            *   **Esprit critique** : Vigilance sur le **biais géographique** (sur-représentation de la Californie) et sur la nature **monosource du dataset**. Une étude de marché terrain est indispensable pour valider si ces tendances sont généralisables à l'ensemble du marché américain
+            """)
+
+            # Tags & Buttons
+            st.markdown('<p class="section-title">Outils & Livrables</p>', unsafe_allow_html=True)
+            tags = ["Power BI", "DAX", "Data Storytelling", "Market Analysis", "Business Strategy", "Python"]
+            tag_html = "".join([f'<span class="tag">{tag}</span>' for tag in tags])
+            st.markdown(f'<div style="margin-bottom: 25px;">{tag_html}</div>', unsafe_allow_html=True)
+            
+            st.info("💡 Fichier .pbix disponible pour une exploration interactive approfondie.")
+            st.write(" ")
+
+            btn_col1, btn_col2 = st.columns([1, 1])
+            with btn_col1:
+                st.markdown(f'<a href="https://github.com/BYRic-F" target="_blank" class="github-btn" style="width:100%; text-align:center;">Consulter le code</a>', unsafe_allow_html=True)
+            with btn_col2:
+                pdf_path = "data/presentations_pdf/Optima_cycle/Power_Point_Presentation.pdf"
+                if os.path.exists(pdf_path):
+                    with open(pdf_path, "rb") as f:
+                        st.download_button(
+                            label="Télécharger l'étude (PDF)",
+                            data=f,
+                            file_name="Optima_Cycles_Strategie.pdf",
+                            mime="application/pdf",
+                            key="optima_pdf"
+                        )
+
+        with col_viz:
+            # Affichage des images (Performance en principal, thumbnails en dessous)
+            img_path = "data/images/Power_bi_Optima_Cycles"
+            if os.path.exists(img_path):
+                st.image(os.path.join(img_path, "performance-du-marché.png"), caption="Analyse de performance & saisonnalité", use_container_width=True)
+                
+                sub_cols = st.columns(2)
+                with sub_cols[0]:
+                    st.image(os.path.join(img_path, "profiling-segementation-produits.png"), caption="Profiling & segmentation", use_container_width=True)
+                with sub_cols[1]:
+                    st.image(os.path.join(img_path, "execution-et-pilotage.png"), caption="Exécution & plan de route", use_container_width=True)
 
     with tabs[1]:
         display_project_card(

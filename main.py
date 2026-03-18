@@ -289,11 +289,11 @@ elif selected == "Projets Power BI":
         with col_text:
             st.markdown('<p class="section-title">Indicateurs de Performance</p>', unsafe_allow_html=True)
             st.markdown("""
-            | KPI | Valeur | Impact Stratégique |
+            | KPI | Valeur | Impact stratégique |
             | :--- | :--- | :--- |
-            | **Profit Global** | **$6.0 M** | Performance robuste sur le marché californien. |
-            | **Taux de Marge** | **44,0 %** | Rentabilité élevée sur les produits choisis. |
-            | **Moteur de Profit** | **56,8 %** | Part du profit généré par le segment 35-64 ans. |
+            | **Profit global** | **$6.0 M** | Performance robuste sur le marché californien. |
+            | **Taux de marge** | **44,0 %** | Rentabilité élevée sur les produits choisis. |
+            | **Moteur de profit** | **56,8 %** | Part du profit généré par le segment 35-64 ans. |
             """)
 
             st.markdown('<p class="section-title">Piliers de l\'Étude</p>', unsafe_allow_html=True)
@@ -365,7 +365,7 @@ elif selected == "Projets Power BI":
         with col_text:
             st.markdown('<p class="section-title">Seuils de Succès & ROI</p>', unsafe_allow_html=True)
             st.markdown("""
-            | Indicateur | Cible Critique | Impact Business |
+            | Indicateur | Cible critique | Impact Business |
             | :--- | :--- | :--- |
             | **Score Metacritic** | **≥ 79 / 100** | Seuil de visibilité et de crédibilité critique. |
             | **Avis Positifs** | **≥ 82 %** | Garantie d'un bouche-à-oreille organique fort. |
@@ -382,7 +382,7 @@ elif selected == "Projets Power BI":
 
             st.markdown('<p class="section-title">Maîtrise Technique</p>', unsafe_allow_html=True)
             st.markdown("""
-            - **Pipeline Hybride** : Extraction et normalisation de **83 000 titres** via script Python.
+            - **Pipeline** : Extraction et normalisation de **83 000 titres** via script Python.
             - **BI Avancée** : Mesures **DAX** pour isoler les leviers de rentabilité.
             - **Agilité** : Étude complète livrée en **1,5 jour**, alliant profondeur d'analyse et rapidité d'exécution.
             """)
@@ -424,15 +424,15 @@ elif selected == "Projets Power BI":
                     st.image(os.path.join(img_path, "Leviers de rentabilité.png"), caption="Analyse de la qualité & saisonnalité", use_container_width=True)
 
     with tabs[2]:
-        st.markdown('<div class="project-header"><h2>Accès à l\'Eau - Mission World Vision</h2></div>', unsafe_allow_html=True)
+        st.markdown('<div class="project-header"><h2>Stratégie Data-Driven : Analyse décisionnelle pour l\'accès à l\'eau</h2></div>', unsafe_allow_html=True)
         
         # Storytelling Hook
         st.markdown("""
         <div class="insight-header">
-            <h4>Mission Humanitaire</h4>
+            <h4>Mission de conseil stratégique</h4>
             <p style="margin:0; font-size: 1.15rem; color: #0f172a; font-weight: 500;">
-                Prioriser les investissements de l'ONG <b>World Vision</b> pour maximiser l'impact vital 
-                en identifiant les zones de crise et les leviers de durabilité.
+                Optimiser l'allocation des fonds de l'ONG <b>World Vision</b> par une analyse prédictive des zones de crise, 
+                transformant la donnée brute en un plan d'urgence vital et pérenne.
             </p>
         </div>
         """, unsafe_allow_html=True)
@@ -440,29 +440,38 @@ elif selected == "Projets Power BI":
         col_text, col_viz = st.columns([1.2, 1], gap="large")
         
         with col_text:
-            st.markdown('<p class="section-title">Indicateurs d\'Urgence</p>', unsafe_allow_html=True)
+            st.markdown('<p class="section-title">Indicateurs d\'urgence & décision</p>', unsafe_allow_html=True)
             st.markdown("""
-            | Métrique | Observation Clé | Recommandation |
+            | Métrique | Observation clé | Recommandation stratégique |
             | :--- | :--- | :--- |
-            | **Écart Rural/Urbain** | **-32 %** d'accès en zone rurale en Afrique. | Déploiement de forages solaires autonomes. |
-            | **Taux de Mortalité** | **101 / 100k** (Tchad). | Priorisation absolue des unités mobiles. |
-            | **Impact Politique** | Corrélation directe instabilité / échec des projets. | Sécurisation des infrastructures critiques. |
+            | **Écart Rural/Urbain** | **-32 %** d'accès en zone rurale (Afrique). | Investissement prioritaire en forages solaires autonomes. |
+            | **Risque vital** | **101 / 100k** décès (Tchad). | Déploiement ciblé d'unités de purification mobiles. |
+            | **Corrélation politique** | Impact direct de l'instabilité sur la pérennité. | Sécurisation des infrastructures plutôt que simple réparation. |
             """)
 
-            st.markdown('<p class="section-title">Piliers de l\'Étude</p>', unsafe_allow_html=True)
+            st.markdown('<p class="section-title">Piliers de l\'Expertise</p>', unsafe_allow_html=True)
             st.markdown("""
-            Une analyse de données au service de la survie, structurée en trois axes :
-            - **Analyse de Corrélation** : Mise en évidence statistique du lien entre stabilité politique et pérennité des points d'eau, influençant la stratégie de maintenance.
-            - **Ciblage "Glocal"** : Identification de l'Afrique comme épicentre du risque (mortalité 3x supérieure à la moyenne mondiale) avec un focus granulaire sur le Tchad et la Somalie.
-            - **Optimisation NGO Strategy** : Passage d'une aide réactive à une stratégie préventive basée sur la durabilité (solaire) pour combler la fracture sociale entre villes et campagnes.
+            Une approche centrée sur l'impact et l'agilité technique :
+            - **Analyse de résilience** : Identification du lien critique entre stabilité politique et dégradation des infrastructures. L'insight stratégique : sécuriser l'infrastructure est aussi vital que de la construire.
+            - **Ciblage "Glocal"** : Définition de l'épicentre du risque mondial (mortalité 3x supérieure à la moyenne) avec une segmentation granulaire pour maximiser le ROI humanitaire.
+            - **Agilité record** : Maîtrise complète de la stack avec un livrable stratégique finalisé en seulement **7 heures**.
+            """)
+
+            st.markdown('<p class="section-title">Rigueur d\'Analyste & Biais</p>', unsafe_allow_html=True)
+            st.markdown("""
+            Une analyse experte repose sur la transparence des limites identifiées pour sécuriser la décision :
+            - **Biais temporel** : L'étude s'appuie sur des indicateurs de 2016. Une mise à jour avec les flux 2024-2025 de l'OMS est indispensable pour un déploiement opérationnel.
+            - **Vigilance Zones de conflit** : Les données (Tchad, Somalie) peuvent présenter un biais de sous-déclaration lié aux difficultés de recensement sur le terrain.
+            - **Scalabilité** : L'architecture est conçue pour intégrer instantanément ces nouveaux flux OMS afin de réactualiser les priorités en temps réel.
             """)
 
             # Tags & Buttons
             st.markdown('<p class="section-title">Outils & Expertises</p>', unsafe_allow_html=True)
-            tags = ["Power BI", "Data Analysis", "NGO Strategy", "Social Impact", "Power Query", "DAX"]
+            tags = ["Power BI", "NGO Strategy", "Social Impact", "Scalable Pipeline", "Power Query", "DAX"]
             tag_html = "".join([f'<span class="tag">{tag}</span>' for tag in tags])
             st.markdown(f'<div style="margin-bottom: 25px;">{tag_html}</div>', unsafe_allow_html=True)
             
+            st.info("💡 Fichier .pbix disponible pour une exploration interactive approfondie.")
             st.write(" ")
 
             btn_col1, btn_col2 = st.columns([1, 1])
@@ -475,7 +484,7 @@ elif selected == "Projets Power BI":
                         st.download_button(
                             label="Télécharger l'étude (PDF)",
                             data=f,
-                            file_name="Mission_World_Vision_Eau.pdf",
+                            file_name="Stratégie_World_Vision_Eau.pdf",
                             mime="application/pdf",
                             key="eau_pdf"
                         )
@@ -511,7 +520,7 @@ elif selected == "Projets Power BI":
         with col_text:
             st.markdown('<p class="section-title">Impact Business & Trésorerie</p>', unsafe_allow_html=True)
             st.markdown("""
-            | Axe d'Analyse | Résultat Clé | Valeur Ajoutée |
+            | Axe d'Analyse | Résultat clé | Valeur ajoutée |
             | :--- | :--- | :--- |
             | **Finances** | **Optimisation trésorerie** | Identification des problèmatiques de paiement. |
             | **Ventes** | **Fidélisation** | Calcul automatisé du taux de retour client par région et des performances produits|

@@ -403,16 +403,81 @@ elif selected == "Projets Power BI":
                     st.image(os.path.join(img_path, "execution-et-pilotage.png"), caption="Exécution & plan de route", use_container_width=True)
 
     with tabs[1]:
-        display_project_card(
-            "Gaming Market Intelligence",
-            "Recommandation : Positionnement MMORPG Premium à 50€ pour maximiser la LTV.",
-            "Analyse du marché mondial du jeu vidéo (83k+ titres).",
-            "Investir dans le bon genre et au bon prix dans un marché ultra-saturé.",
-            "Dashboard décisionnel intégrant Metacritic et analyses de cycle de vie des produits.",
-            ["DAX", "Market Intelligence", "Gaming Strategy"],
-            "data/images/Power_BI_Video_game_market",
-            pdf_path="data/presentations_pdf/Video_game_market/Presentation_video_game.pdf"
-        )
+        st.markdown('<div class="project-header"><h2>Gaming Market intelligence</h2></div>', unsafe_allow_html=True)
+        
+        # Storytelling Hook
+        st.markdown("""
+        <div class="insight-header">
+            <h4>Mission de Conseil : GameQuest Productions</h4>
+            <p style="margin:0; font-size: 1.15rem; color: #0f172a; font-weight: 500;">
+                Accompagner <b>Édouard</b> (éditeur Mid-Tier) dans la sécurisation d'un investissement majeur 
+                parmi <b>83 000 titres</b> concurrents.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+        col_text, col_viz = st.columns([1.2, 1], gap="large")
+        
+        with col_text:
+            st.markdown('<p class="section-title">Seuils de Succès & ROI</p>', unsafe_allow_html=True)
+            st.markdown("""
+            | Indicateur | Cible Critique | Impact Business |
+            | :--- | :--- | :--- |
+            | **Score Metacritic** | **≥ 79 / 100** | Seuil de visibilité et de crédibilité critique. |
+            | **Avis Positifs** | **≥ 82 %** | Garantie d'un bouche-à-oreille organique fort. |
+            | **Prix de Vente** | **50,00 €** | Positionnement Premium vs guerre des prix. |
+            """)
+
+            st.markdown('<p class="section-title">Recommandation Stratégique</p>', unsafe_allow_html=True)
+            st.markdown("""
+            Une feuille de route pour maximiser la **LTV (Lifetime Value)** :
+            - **Genre & modèle** : Développement d'un **MMORPG Premium** avec une stratégie de 2 à 3 DLC pour assurer la persistance des revenus.
+            - **Fenêtres de tir** : Lancement prioritaire en **Mars** ou **Septembre** pour éviter les creux de saisonnalité.
+            - **Indice de risque (24.5)** : Modèle calculé sur la complexité technique et la saturation du marché, compensé par une localisation multilingue (5+ langues).
+            """)
+
+            st.markdown('<p class="section-title">Maîtrise Technique</p>', unsafe_allow_html=True)
+            st.markdown("""
+            - **Pipeline Hybride** : Extraction et normalisation de **83 000 titres** via script Python.
+            - **BI Avancée** : Mesures **DAX** pour isoler les leviers de rentabilité.
+            - **Agilité** : Étude complète livrée en **1,5 jour**, alliant profondeur d'analyse et rapidité d'exécution.
+            """)
+
+            # Tags & Buttons
+            st.markdown('<p class="section-title">Outils & Livrables</p>', unsafe_allow_html=True)
+            tags = ["Power BI", "Python", "DAX", "Market Intelligence", "Consulting", "ETL"]
+            tag_html = "".join([f'<span class="tag">{tag}</span>' for tag in tags])
+            st.markdown(f'<div style="margin-bottom: 25px;">{tag_html}</div>', unsafe_allow_html=True)
+            
+            st.info("💡 Fichier .pbix disponible pour exploration interactive des 83k titres.")
+            st.write("")
+
+            btn_col1, btn_col2 = st.columns([1, 1])
+            with btn_col1:
+                st.markdown(f'<a href="https://github.com/BYRic-F/VideoGame-Market" target="_blank" class="github-btn" style="width:100%; text-align:center;">Consulter le code</a>', unsafe_allow_html=True)
+            with btn_col2:
+                pdf_path = "data/presentations_pdf/Video_game_market/Presentation_video_game.pdf"
+                if os.path.exists(pdf_path):
+                    with open(pdf_path, "rb") as f:
+                        st.download_button(
+                            label="Télécharger l'étude (PDF)",
+                            data=f,
+                            file_name="Gaming_Intelligence_Strategie.pdf",
+                            mime="application/pdf",
+                            key="gaming_pdf"
+                        )
+
+        with col_viz:
+            # Affichage des images (Choix stratégique en principal, thumbnails en dessous)
+            img_path = "data/images/Power_BI_Video_game_market"
+            if os.path.exists(img_path):
+                st.image(os.path.join(img_path, "Choix stratégique.png"), caption="Recommandation Business Plan & LTV", use_container_width=True)
+                
+                sub_cols = st.columns(2)
+                with sub_cols[0]:
+                    st.image(os.path.join(img_path, "Santé du marché.png"), caption="Diagnostic : Saturation & Prix", use_container_width=True)
+                with sub_cols[1]:
+                    st.image(os.path.join(img_path, "Leviers de rentabilité.png"), caption="Analyse de la Qualité & Saisonnalité", use_container_width=True)
 
     with tabs[2]:
         display_project_card(

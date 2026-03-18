@@ -9,6 +9,20 @@ st.set_page_config(
     layout="wide",
 )
 
+# Injection Open Graph pour LinkedIn
+st.markdown("""
+    <head>
+        <meta property="og:type"        content="website" />
+        <meta property="og:url"         content="https://portfolio-f-bayen.streamlit.app/" />
+        <meta property="og:title"       content="Portfolio · F. Bayen" />
+        <meta property="og:description" content="Projets data science, visualisations et applications interactives." />
+        <meta property="og:image"       content="URL_DE_TON_IMAGE_PREVIEW" />
+        <meta property="og:image:width"  content="1200" />
+        <meta property="og:image:height" content="630" />
+    </head>
+""", unsafe_allow_html=True)
+
+
 # --- LOAD CSS ---
 with open("style.css") as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)

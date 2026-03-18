@@ -14,7 +14,6 @@ with open("style.css") as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 # --- NAVIGATION ---
-# Moving navigation to the top for a more modern, full-width feel
 selected = option_menu(
     menu_title=None,
     options=["Accueil", "Projets Python", "Projets Power BI", "Mon CV"],
@@ -77,7 +76,6 @@ if selected == "Accueil":
         """)
         
         st.markdown("<br>", unsafe_allow_html=True)
-        # Unified Tags for Skills
         skills = ["Power BI", "Python", "SQL", "MLOps", "Business Strategy", "ETL", "Docker", "Git", "DAX", "FastAPI"]
         skill_html = "".join([f'<span class="tag">{skill}</span>' for skill in skills])
         st.markdown(f'<div style="display:flex; gap:3px; flex-wrap:wrap;">{skill_html}</div>', unsafe_allow_html=True)
@@ -91,101 +89,74 @@ elif selected == "Projets Python":
     
     with tabs[0]:
         st.markdown('<div class="project-header"><h2>Détection de fraudes en temps réel</h2></div>', unsafe_allow_html=True)
-
-        # Storytelling Hook
         st.markdown("""
         <div class="insight-header">
             <h4>Le Défi Business</h4>
             <p style="margin:0; font-size: 1.15rem; color: #0f172a; font-weight: 500;">
-                Stopper une hémorragie financière de <b>plusieurs centaines de millions de Shillings kényans par an</b> due à la fraude transactionnelle, 
-                tout en garantissant une expérience fluide pour des millions d'utilisateurs quotidiens.
+                Stopper une hémorragie financière de <b>plusieurs centaines de millions de Shillings kényans par an</b> due à la fraude transactionnelle.
             </p>
         </div>
         """, unsafe_allow_html=True)
 
         col_text, col_viz = st.columns([1.2, 1], gap="large")
-
         with col_text:
             st.markdown('<p class="section-title">Performance & Impact</p>', unsafe_allow_html=True)
-            # Table des métriques
             st.markdown("""
             | Métrique | Score | Impact |
             | :--- | :--- | :--- |
-            | **Recall (Le bouclier)** | **87 %** | Interception de la grande majorité des fraudes. |
-            | **Spécificité (La fluidité)** | **99,4 %** | Moins de 1% de clients honnêtes impactés. |
-            | **Latence (La vitesse)** | **< 30ms** | Décision instantanée, transparence totale. |
+            | **Recall** | **87 %** | Interception de la grande majorité des fraudes. |
+            | **Spécificité** | **99,4 %** | Moins de 1% de faux positifs. |
+            | **Latence** | **< 30ms** | Décision instantanée. |
             """)
 
             st.markdown('<p class="section-title">L\'Approche Technique (MLOps)</p>', unsafe_allow_html=True)
             st.markdown("""
-            Plutôt qu'un modèle statique, nous avons conçu une **architecture vivante et auto-adaptative** :
-            - **Ingestion** : Pipeline asynchrone via **FastAPI** et buffer **Redis** pour une résilience totale.
-            - **Cerveau prédictif** : Modélisation **XGBoost** optimisée pour le déséquilibre de classes massif (0.13% de fraudes).
-            - **Automatisation & Model Gating** : Orchestration via **Prefect**. Le système se réentraîne sur **BigQuery** et ne déploie la nouvelle version que si elle surpasse le record de performance précédent.
+            - **Ingestion** : Pipeline asynchrone via **FastAPI** et **Redis**.
+            - **Modèle** : **XGBoost** optimisé pour le déséquilibre de classes.
+            - **Automatisation** : Orchestration via **Prefect** et monitoring **Grafana**.
             """)
 
-            # Tags & Buttons
-            st.markdown('<p class="section-title">Technologies</p>', unsafe_allow_html=True)
-            tags = ["Python", "XGBoost", "FastAPI", "MLOps", "Redis", "BigQuery", "Prefect", "Docker", "Grafana", "BigQuery"]
+            tags = ["Python", "XGBoost", "FastAPI", "MLOps", "Redis", "Prefect", "Docker", "Grafana"]
             tag_html = "".join([f'<span class="tag">{tag}</span>' for tag in tags])
             st.markdown(f'<div style="margin-bottom: 25px;">{tag_html}</div>', unsafe_allow_html=True)
-            st.write(" ")
-
+            
             btn_col1, btn_col2 = st.columns([1, 1])
-            st.write(" ")
             with btn_col1:
                 st.markdown(f'<a href="https://github.com/BYRic-F/projet_fraude_cb" target="_blank" class="github-btn" style="width:100%; text-align:center;">Consulter le code</a>', unsafe_allow_html=True)
             with btn_col2:
                 st.markdown(f'<a href="https://www.youtube.com/watch?v=oukKv2ohZn0" target="_blank" class="github-btn" style="width:100%; text-align:center;">Démonstration Vidéo</a>', unsafe_allow_html=True)
 
         with col_viz:
-            # Affichage des GIFs avec la disposition d'origine (un grand, les autres en dessous)
             img_path = "data/images/Python_detection_fraudes"
             if os.path.exists(img_path):
-                st.image(os.path.join(img_path, "page_fraude.gif"), caption="Pilotage Temps Réel (Streamlit)", use_container_width=True)
-                
+                st.image(os.path.join(img_path, "page_fraude.gif"), caption="Pilotage Temps Réel", use_container_width=True)
                 sub_cols = st.columns(2)
-                with sub_cols[0]:
-                    st.image(os.path.join(img_path, "grafanaa.gif"), caption="Monitoring (Grafana)", use_container_width=True)
-                with sub_cols[1]:
-                    st.image(os.path.join(img_path, "prefect2 (1).gif"), caption="MLOps (Prefect)", use_container_width=True)
+                with sub_cols[0]: st.image(os.path.join(img_path, "grafanaa.gif"), use_container_width=True)
+                with sub_cols[1]: st.image(os.path.join(img_path, "prefect2 (1).gif"), use_container_width=True)
         
     with tabs[1]:
         st.markdown('<div class="project-header"><h2>IA Prospector - Insee</h2></div>', unsafe_allow_html=True)
-        
-        # Storytelling Hook
         st.markdown("""
         <div class="insight-header">
             <h4>Le Défi Business</h4>
             <p style="margin:0; font-size: 1.15rem; color: #0f172a; font-weight: 500;">
-                <b>Enrichir la base CRM de RH Performances</b> grâce à un ciblage automatisé et intelligent, permettant d'isoler les prospects à fort potentiel en éliminant 90 % du bruit des bases SIRENE.
+                <b>Enrichir le CRM</b> par un ciblage automatisé via Gemini AI et l'API Insee.
             </p>
         </div>
         """, unsafe_allow_html=True)
 
         col_text, col_viz = st.columns([1.2, 1], gap="large")
-        
         with col_text:
             st.markdown('<p class="section-title">Performance & Expertise</p>', unsafe_allow_html=True)
             st.markdown("""
             | Métrique | Impact |
             | :--- | :--- |
-            | **Efficacité de Ciblage** | **100% de succès** sur 50 tests sectoriels intensifs. |
-            | **Précision IA** | Traduction sémantique des métiers en **codes NAF techniques**. |
-            | **Modèles** | Architectures hybrides **Gemini 3 & 3.1 Flash-Lite**. |
+            | **Efficacité** | Ciblage précis sur 1700+ codes NAF. |
+            | **IA** | Modèles Gemini 3.1 Flash-Lite. |
             """)
 
-            st.markdown('<p class="section-title">Ingénierie de Précision</p>', unsafe_allow_html=True)
-            st.markdown("""
-            Conçu pour répondre aux exigences critiques d'un cabinet de recrutement (RH Performances) :
-            - **Nomenclature NAF 2008** : Scan intelligent de **1700+ codes NAF** pour garantir une compatibilité à 100% avec l'API Sirene réelle.
-            - **Batching Intelligent** : Découpage dynamique des requêtes pour les zones denses (Paris, Lyon, Marseille) afin d'éviter la saturation de l'API.
-            - **Optimisation mobile (OSINT)** : Transformation automatique des numéros en **liens cliquables (tel:)** pour une prospection directe sur smartphone.
-            """)
-
-            # Tags & Buttons
             st.markdown('<p class="section-title">Technologies</p>', unsafe_allow_html=True)
-            tags = ["Gemini AI", "Streamlit", "API Insee", "OSINT", "Python", "NAF 2008", "Data Engineering"]
+            tags = ["Gemini AI", "Streamlit", "API Insee", "OSINT", "Python", "Data Engineering"]
             tag_html = "".join([f'<span class="tag">{tag}</span>' for tag in tags])
             st.markdown(f'<div style="margin-bottom: 25px;">{tag_html}</div>', unsafe_allow_html=True)
             
@@ -196,55 +167,36 @@ elif selected == "Projets Python":
                 st.markdown(f'<a href="https://inseeprospectorcloud.streamlit.app/" target="_blank" class="github-btn" style="width:100%; text-align:center;">Accéder à l\'application</a>', unsafe_allow_html=True)
 
         with col_viz:
-            # Affichage des images (GIF en principal, screenshots en dessous)
             img_path = "data/images/Python_Inspector_insee"
             if os.path.exists(img_path):
-                st.image(os.path.join(img_path, "demonstration_insee.gif"), caption="Démonstration du ciblage intelligent", use_container_width=True)
-                
+                st.image(os.path.join(img_path, "demonstration_insee.gif"), use_container_width=True)
                 sub_cols = st.columns(2)
-                with sub_cols[0]:
-                    st.image(os.path.join(img_path, "Page_accueil1.png"), caption="Interface d'accueil & export CRM", use_container_width=True)
-                with sub_cols[1]:
-                    st.image(os.path.join(img_path, "Page_graphique2.png"), caption="Analyses géographiques & sectorielles", use_container_width=True)
+                with sub_cols[0]: st.image(os.path.join(img_path, "Page_accueil1.png"), use_container_width=True)
+                with sub_cols[1]: st.image(os.path.join(img_path, "Page_graphique2.png"), use_container_width=True)
 
     with tabs[2]:
-        st.markdown('<div class="project-header"><h2>Système de recommandation hybride (Content & collaborative)</h2></div>', unsafe_allow_html=True)
-        
-        # Storytelling Hook
+        st.markdown('<div class="project-header"><h2>Moteur de Recommandation Hybride</h2></div>', unsafe_allow_html=True)
         st.markdown("""
         <div class="insight-header">
             <h4>Le Défi Business</h4>
             <p style="margin:0; font-size: 1.15rem; color: #0f172a; font-weight: 500;">
-                Maximiser la rétention utilisateur en proposant des recommandations pertinentes dès la première connexion, 
-                en résolvant le problème critique du <b>"Cold Start"</b>.
+                Résoudre le <b>Cold Start</b> par un système hybride KNN/SVD.
             </p>
         </div>
         """, unsafe_allow_html=True)
 
         col_text, col_viz = st.columns([1.2, 1], gap="large")
-        
         with col_text:
             st.markdown('<p class="section-title">Performance & Innovation</p>', unsafe_allow_html=True)
             st.markdown("""
             | Métrique | Impact |
             | :--- | :--- |
-            | **Catalogue** | **10 000+ titres** premium rigoureusement filtrés. |
-            | **Authentification** | **Adaptation de l'interface Streamlit** pour débloquer les fonctionnalités avancées du modèle SVD uniquement pour les utilisateurs authentifiés.|
-            | **Algorithme** | Système **hybride** (KNN Sémantique + SVD collaboratif). |
-            | **Temps réel** | Projection instantanée du profil dans l'espace latent. |            
+            | **Algorithme** | Hybride (KNN Sémantique + SVD). |
+            | **Données** | 10 000+ titres filtrés. |
             """)
 
-            st.markdown('<p class="section-title">Ingénierie de la Donnée</p>', unsafe_allow_html=True)
-            st.markdown("""
-            Pipeline ETL complet pour transformer des données brutes massives en un moteur fluide :
-            - **Hybride KNN/SVD** : Combinaison de la similarité cosinus sur les résumés (**SpaCy**) et de la décomposition en valeurs singulières (**Surprise SVD**).
-            - **Optimisation DuckDB** : Traitement SQL haute performance pour gérer des bases de données lourdes sans saturation RAM.
-            - **Résolution du "Cold Start"** : Interface d'onboarding interactive imposant la notation de 5 films dès l'inscription pour alimenter l'algorithme SVD et garantir des recommandations personnalisées immédiates.
-            """)
-
-            # Tags & Buttons
             st.markdown('<p class="section-title">Technologies</p>', unsafe_allow_html=True)
-            tags = ["NLP", "SpaCy", "DuckDB", "SVD", "KNN", "Python", "ETL", "Streamlit", "Scikit-Learn"]
+            tags = ["NLP", "SpaCy", "DuckDB", "SVD", "Python", "Scikit-Learn"]
             tag_html = "".join([f'<span class="tag">{tag}</span>' for tag in tags])
             st.markdown(f'<div style="margin-bottom: 25px;">{tag_html}</div>', unsafe_allow_html=True)
             
@@ -255,298 +207,47 @@ elif selected == "Projets Python":
                 st.markdown(f'<a href="https://byric-f-project-reco-movie-streamlit-app-3pm0kb.streamlit.app/" target="_blank" class="github-btn" style="width:100%; text-align:center;">Accéder à l\'application</a>', unsafe_allow_html=True)
 
         with col_viz:
-            # Affichage des images (GIF en principal, screenshots en dessous)
             img_path = "data/images/Python_Recommandations_films"
             if os.path.exists(img_path):
-                st.image(os.path.join(img_path, "Python_recommandations films.gif"), caption="Expérience utilisateur & Recommandations", use_container_width=True)
-                
+                st.image(os.path.join(img_path, "Python_recommandations films.gif"), use_container_width=True)
                 sub_cols = st.columns(2)
-                with sub_cols[0]:
-                    st.image(os.path.join(img_path, "Page_d_accueil.png"), caption="Page d'accueil", use_container_width=True)
-                with sub_cols[1]:
-                    st.image(os.path.join(img_path, "Resultat_recherche.png"), caption="Analyse sémantique & détails", use_container_width=True)
+                with sub_cols[0]: st.image(os.path.join(img_path, "Page_d_accueil.png"), use_container_width=True)
+                with sub_cols[1]: st.image(os.path.join(img_path, "Resultat_recherche.png"), use_container_width=True)
 
 elif selected == "Projets Power BI":
     st.markdown('<h1 class="main-title" style="text-align:left; font-size: 3rem !important;">Strategic BI</h1>', unsafe_allow_html=True)
     tabs = st.tabs(["TOYS & MODELS", "OPTIMA CYCLES", "MISSION HUMANITAIRE","GAMING INTELLIGENCE"])
     
-    with tabs[1]:
-        st.markdown('<div class="project-header"><h2>Optima Cycles - Étude d\'implantation</h2></div>', unsafe_allow_html=True)
-        
-        # Storytelling Hook
-        st.markdown("""
-        <div class="insight-header">
-            <h4>Vision Stratégique</h4>
-            <p style="margin:0; font-size: 1.15rem; color: #0f172a; font-weight: 500;">
-                Valider l'ouverture d'un point de vente physique par la donnée : 
-                <b>Ciblage Californie</b>, mois de <b>Mars</b>, et focus sur le segment <b>35-64 ans</b>.
-            </p>
-        </div>
-        """, unsafe_allow_html=True)
-
-        col_text, col_viz = st.columns([1.2, 1], gap="large")
-        
-        with col_text:
-            st.markdown('<p class="section-title">Indicateurs de Performance</p>', unsafe_allow_html=True)
-            st.markdown("""
-            | KPI | Valeur | Impact Stratégique |
-            | :--- | :--- | :--- |
-            | **Profit Global** | **$6.0 M** | Performance robuste sur le marché californien. |
-            | **Taux de Marge** | **44,0 %** | Rentabilité élevée sur les produits choisis. |
-            | **Moteur de Profit** | **56,8 %** | Part du profit généré par le segment 35-64 ans. |
-            """)
-
-            st.markdown('<p class="section-title">Piliers de l\'Étude</p>', unsafe_allow_html=True)
-            st.markdown("""
-            Une recommandation d'investissement basée sur trois axes d'optimisation :
-            - **Saisonnalité & timing** : Ouverture stratégique en Mars pour capter le pic annuel de rentabilité printanier.
-            - **Optimisation du catalogue** : Rationalisation du stock (2 modèles de vélos sur 3 retenus et uniquement une sélection d'accessoires) pour maximiser la rotation de trésorerie.
-            - **Ciblage démographique** : Identification précise du profil client "moteur" pour orienter les campagnes marketing.
-            """)
-
-            st.markdown('<p class="section-title">Rigueur d\'Analyste</p>', unsafe_allow_html=True)
-            st.markdown("""
-            *   **Agilité** : Étude complète réalisée en **8 heures**, prouvant une capacité de réaction rapide pour les décideurs.
-            *   **Esprit critique** : Vigilance sur le **biais géographique** (sur-représentation de la Californie) et sur la nature **monosource du dataset**. Une étude de marché terrain est indispensable pour valider si ces tendances sont généralisables à l'ensemble du marché américain
-            """)
-
-            # Tags & Buttons
-            st.markdown('<p class="section-title">Outils & Livrables</p>', unsafe_allow_html=True)
-            tags = ["Power BI", "DAX", "Data Storytelling", "Market Analysis", "Business Strategy", "Python"]
-            tag_html = "".join([f'<span class="tag">{tag}</span>' for tag in tags])
-            st.markdown(f'<div style="margin-bottom: 25px;">{tag_html}</div>', unsafe_allow_html=True)
-            
-            st.info("💡 Fichier .pbix disponible pour une exploration interactive approfondie.")
-            st.write(" ")
-
-            btn_col1, btn_col2 = st.columns([1, 1])
-            with btn_col1:
-                st.markdown(f'<a href="https://github.com/BYRic-F/Data-Driven-Retail-Launch" target="_blank" class="github-btn" style="width:100%; text-align:center;">Consulter le code</a>', unsafe_allow_html=True)
-            with btn_col2:
-                pdf_path = "data/presentations_pdf/Optima_cycle/Power_Point_Presentation.pdf"
-                if os.path.exists(pdf_path):
-                    with open(pdf_path, "rb") as f:
-                        st.download_button(
-                            label="Télécharger l'étude (PDF)",
-                            data=f,
-                            file_name="Optima_Cycles_Strategie.pdf",
-                            mime="application/pdf",
-                            key="optima_pdf"
-                        )
-
-        with col_viz:
-            # Affichage des images (Performance en principal, thumbnails en dessous)
-            img_path = "data/images/Power_bi_Optima_Cycles"
-            if os.path.exists(img_path):
-                st.image(os.path.join(img_path, "performance-du-marché.png"), caption="Analyse de performance & saisonnalité", use_container_width=True)
-                
-                sub_cols = st.columns(2)
-                with sub_cols[0]:
-                    st.image(os.path.join(img_path, "profiling-segementation-produits.png"), caption="Profiling & segmentation", use_container_width=True)
-                with sub_cols[1]:
-                    st.image(os.path.join(img_path, "execution-et-pilotage.png"), caption="Exécution & plan de route", use_container_width=True)
-
-    with tabs[3]:
-        st.markdown('<div class="project-header"><h2>Gaming Market intelligence</h2></div>', unsafe_allow_html=True)
-        
-        # Storytelling Hook
-        st.markdown("""
-        <div class="insight-header">
-            <h4>Mission de Conseil : GameQuest Productions</h4>
-            <p style="margin:0; font-size: 1.15rem; color: #0f172a; font-weight: 500;">
-                Accompagner <b>Édouard</b> (éditeur Mid-Tier) dans la sécurisation d'un investissement majeur 
-                parmi <b>83 000 titres</b> concurrents.
-            </p>
-        </div>
-        """, unsafe_allow_html=True)
-
-        col_text, col_viz = st.columns([1.2, 1], gap="large")
-        
-        with col_text:
-            st.markdown('<p class="section-title">Seuils de Succès & ROI</p>', unsafe_allow_html=True)
-            st.markdown("""
-            | Indicateur | Cible Critique | Impact Business |
-            | :--- | :--- | :--- |
-            | **Score Metacritic** | **≥ 79 / 100** | Seuil de visibilité et de crédibilité critique. |
-            | **Avis Positifs** | **≥ 82 %** | Garantie d'un bouche-à-oreille organique fort. |
-            | **Prix de Vente** | **50,00 €** | Positionnement Premium vs guerre des prix. |
-            """)
-
-            st.markdown('<p class="section-title">Recommandation Stratégique</p>', unsafe_allow_html=True)
-            st.markdown("""
-            Une feuille de route pour maximiser la **LTV (Lifetime Value)** :
-            - **Genre & modèle** : Développement d'un **MMORPG Premium** avec une stratégie de 2 à 3 DLC pour assurer la persistance des revenus.
-            - **Fenêtres de tir** : Lancement prioritaire en **Mars** ou **Septembre** pour éviter les creux de saisonnalité.
-            - **Indice de risque (24.5)** : Modèle calculé sur la complexité technique et la saturation du marché, compensé par une localisation multilingue (5+ langues).
-            """)
-
-            st.markdown('<p class="section-title">Maîtrise Technique</p>', unsafe_allow_html=True)
-            st.markdown("""
-            - **Pipeline Hybride** : Extraction et normalisation de **83 000 titres** via script Python.
-            - **BI Avancée** : Mesures **DAX** pour isoler les leviers de rentabilité.
-            - **Agilité** : Étude complète livrée en **1,5 jour**, alliant profondeur d'analyse et rapidité d'exécution.
-            """)
-
-            # Tags & Buttons
-            st.markdown('<p class="section-title">Outils & Livrables</p>', unsafe_allow_html=True)
-            tags = ["Power BI", "Python", "DAX", "Market Intelligence", "Consulting", "ETL"]
-            tag_html = "".join([f'<span class="tag">{tag}</span>' for tag in tags])
-            st.markdown(f'<div style="margin-bottom: 25px;">{tag_html}</div>', unsafe_allow_html=True)
-            
-            st.info("💡 Fichier .pbix disponible pour exploration interactive des 83k titres.")
-            st.write("")
-
-            btn_col1, btn_col2 = st.columns([1, 1])
-            with btn_col1:
-                st.markdown(f'<a href="https://github.com/BYRic-F/VideoGame-Market" target="_blank" class="github-btn" style="width:100%; text-align:center;">Consulter le code</a>', unsafe_allow_html=True)
-            with btn_col2:
-                pdf_path = "data/presentations_pdf/Video_game_market/Presentation_video_game.pdf"
-                if os.path.exists(pdf_path):
-                    with open(pdf_path, "rb") as f:
-                        st.download_button(
-                            label="Télécharger l'étude (PDF)",
-                            data=f,
-                            file_name="Gaming_Intelligence_Strategie.pdf",
-                            mime="application/pdf",
-                            key="gaming_pdf"
-                        )
-
-        with col_viz:
-            # Affichage des images (Choix stratégique en principal, thumbnails en dessous)
-            img_path = "data/images/Power_BI_Video_game_market"
-            if os.path.exists(img_path):
-                st.image(os.path.join(img_path, "Choix stratégique.png"), caption="Recommandation Business Plan & LTV", use_container_width=True)
-                
-                sub_cols = st.columns(2)
-                with sub_cols[0]:
-                    st.image(os.path.join(img_path, "Santé du marché.png"), caption="Diagnostic : Saturation & prix", use_container_width=True)
-                with sub_cols[1]:
-                    st.image(os.path.join(img_path, "Leviers de rentabilité.png"), caption="Analyse de la qualité & saisonnalité", use_container_width=True)
-
-    with tabs[2]:
-        st.markdown('<div class="project-header"><h2>Accès à l\'Eau - Mission World Vision</h2></div>', unsafe_allow_html=True)
-        
-        # Storytelling Hook
-        st.markdown("""
-        <div class="insight-header">
-            <h4>Mission Humanitaire</h4>
-            <p style="margin:0; font-size: 1.15rem; color: #0f172a; font-weight: 500;">
-                Prioriser les investissements de l'ONG <b>World Vision</b> pour maximiser l'impact vital 
-                en identifiant les zones de crise et les leviers de durabilité.
-            </p>
-        </div>
-        """, unsafe_allow_html=True)
-
-        col_text, col_viz = st.columns([1.2, 1], gap="large")
-        
-        with col_text:
-            st.markdown('<p class="section-title">Indicateurs d\'Urgence</p>', unsafe_allow_html=True)
-            st.markdown("""
-            | Métrique | Observation Clé | Recommandation |
-            | :--- | :--- | :--- |
-            | **Écart Rural/Urbain** | **-32 %** d'accès en zone rurale en Afrique. | Déploiement de forages solaires autonomes. |
-            | **Taux de Mortalité** | **101 / 100k** (Tchad). | Priorisation absolue des unités mobiles. |
-            | **Impact Politique** | Corrélation directe instabilité / échec des projets. | Sécurisation des infrastructures critiques. |
-            """)
-
-            st.markdown('<p class="section-title">Piliers de l\'Étude</p>', unsafe_allow_html=True)
-            st.markdown("""
-            Une analyse de données au service de la survie, structurée en trois axes :
-            - **Analyse de Corrélation** : Mise en évidence statistique du lien entre stabilité politique et pérennité des points d'eau, influençant la stratégie de maintenance.
-            - **Ciblage "Glocal"** : Identification de l'Afrique comme épicentre du risque (mortalité 3x supérieure à la moyenne mondiale) avec un focus granulaire sur le Tchad et la Somalie.
-            - **Optimisation NGO Strategy** : Passage d'une aide réactive à une stratégie préventive basée sur la durabilité (solaire) pour combler la fracture sociale entre villes et campagnes.
-            """)
-
-            # Tags & Buttons
-            st.markdown('<p class="section-title">Outils & Expertises</p>', unsafe_allow_html=True)
-            tags = ["Power BI", "Data Analysis", "NGO Strategy", "Social Impact", "Power Query", "DAX"]
-            tag_html = "".join([f'<span class="tag">{tag}</span>' for tag in tags])
-            st.markdown(f'<div style="margin-bottom: 25px;">{tag_html}</div>', unsafe_allow_html=True)
-            
-            st.write(" ")
-
-            btn_col1, btn_col2 = st.columns([1, 1])
-            with btn_col1:
-                st.markdown(f'<a href="https://github.com/BYRic-F" target="_blank" class="github-btn" style="width:100%; text-align:center;">Consulter le code</a>', unsafe_allow_html=True)
-            with btn_col2:
-                pdf_path = "data/presentations_pdf/Acces_eau/Présentation_projet_eau.pdf"
-                if os.path.exists(pdf_path):
-                    with open(pdf_path, "rb") as f:
-                        st.download_button(
-                            label="Télécharger l'étude (PDF)",
-                            data=f,
-                            file_name="Mission_World_Vision_Eau.pdf",
-                            mime="application/pdf",
-                            key="eau_pdf"
-                        )
-
-        with col_viz:
-            # Affichage des images (Vue Monde en principal, thumbnails en dessous)
-            img_path = "data/images/PowerBi_acces_eau"
-            if os.path.exists(img_path):
-                st.image(os.path.join(img_path, "Vue_monde.png"), caption="Analyse mondiale & corrélations politiques", use_container_width=True)
-                
-                sub_cols = st.columns(2)
-                with sub_cols[0]:
-                    st.image(os.path.join(img_path, "Vue_region.png"), caption="Focus Afrique & fractures rurales", use_container_width=True)
-                with sub_cols[1]:
-                    st.image(os.path.join(img_path, "Vue_pays.png"), caption="Priorisation par pays (Risque vital)", use_container_width=True)
-
     with tabs[0]:
         st.markdown('<div class="project-header"><h2>Toys & Models - Pilotage 360°</h2></div>', unsafe_allow_html=True)
-        
-        # Storytelling Hook
         st.markdown("""
         <div class="insight-header">
             <h4>Vision Holistique</h4>
             <p style="margin:0; font-size: 1.15rem; color: #0f172a; font-weight: 500;">
-                Transformer une base de données brute en un écosystème décisionnel unifié pour piloter les 
-                <b>Ventes</b>, les <b>Finances</b> et les <b>Ressources Humaines</b> d'un distributeur mondial.
+                Écosystème décisionnel unifié : Ventes, Finances et RH.
             </p>
         </div>
         """, unsafe_allow_html=True)
 
         col_text, col_viz = st.columns([1.2, 1], gap="large")
-        
         with col_text:
-            st.markdown('<p class="section-title">Impact Business & Trésorerie</p>', unsafe_allow_html=True)
-            st.markdown("""
-            | Axe d'Analyse | Résultat Clé | Valeur Ajoutée |
-            | :--- | :--- | :--- |
-            | **Finances** | **Optimisation trésorerie** | Identification des problèmatiques de paiement. |
-            | **Ventes** | **Fidélisation** | Calcul automatisé du taux de retour client par région et des performances produits|
-            | **RH** | **Sécurisation des Encaissements** | Corrélation directe entre CA généré et ratio d'impayés par agent. |
-            """)
-
             st.markdown('<p class="section-title">Périmètre de Pilotage (360°)</p>', unsafe_allow_html=True)
             st.markdown("""
-            - **Dashboard Ventes** : Analyse du CA par bureau, suivi de la **fidélisation** (taux de retour) et de l'efficacité commerciale (panier moyen par catégorie).
-            - **Dashboard Finance** : Calcul de la **marge brute** par produit, suivi de la croissance trimestrielle et gestion fine des créances (taux de recouvrement).
-            - **Dashboard RH** : Classement des performances agents, responsabilisation sur les impayés.
-            """)
-
-            st.markdown('<p class="section-title">Piliers de l\'Architecture</p>', unsafe_allow_html=True)
-            st.markdown("""
-            Une solution intégrée reposant sur une modélisation robuste :
-            - **Intelligence SQL** : Utilisation de requêtes complexes (**CTE**, **Window Functions**) pour extraire des KPIs croisés inaccessibles via un export standard.
-            - **Modélisation Star Schema** : Restructuration complète de la base MySQL vers un schéma en étoile (FACT_ORDER, DIM_PRODUCT...) pour une performance analytique optimale.
-            - **Gestion du Cash-Flow** : Responsabilisation des commerciaux sur le cycle de vie complet de la vente (de la commande au paiement réel).
+            - **📊 Ventes** : Fidélisation (taux de retour), CA par bureau.
+            - **💰 Finance** : Marge brute, gestion des créances.
+            - **👥 RH** : Sécurisation des encaissements (ratio commandes/paiements).
             """)
 
             st.markdown('<p class="section-title">Insights Stratégiques</p>', unsafe_allow_html=True)
             st.markdown("""
-            - **Risque de Concentration** : Mise en évidence d'une dépendance critique envers deux clients majeurs. Préconisation de diversification du portefeuille.
-            - **Optimisation du Catalogue** : Analyse de rotation suggérant le retrait de la gamme "Trains" pour libérer du fonds de roulement.
+            - ⚠️ **Risque de Concentration** : Dépendance critique envers deux clients majeurs.
+            - 📉 **Optimisation Catalogue** : Retrait préconisé de la gamme "Trains".
             """)
 
-            # Tags & Buttons
-            st.markdown('<p class="section-title">Stack Technique</p>', unsafe_allow_html=True)
-            tags = ["MySQL", "Power BI", "DAX", "Data Modeling", "Finance BI", "Supply Chain"]
+            tags = ["MySQL", "Power BI", "DAX", "Data Modeling", "Finance BI"]
             tag_html = "".join([f'<span class="tag">{tag}</span>' for tag in tags])
             st.markdown(f'<div style="margin-bottom: 25px;">{tag_html}</div>', unsafe_allow_html=True)
-            
-            st.info("💡 Fichiers .pbix (Ventes, Finances, RH) disponibles pour une exploration interactive.")
-            st.write(" ")
+            st.info("💡 Fichiers .pbix disponibles pour exploration.")
 
             btn_col1, btn_col2 = st.columns([1, 1])
             with btn_col1:
@@ -555,57 +256,188 @@ elif selected == "Projets Power BI":
                 pdf_path = "data/presentations_pdf/Toys and models/Presentation_toys_and_models.pdf"
                 if os.path.exists(pdf_path):
                     with open(pdf_path, "rb") as f:
-                        st.download_button(
-                            label="Télécharger l'étude (PDF)",
-                            data=f,
-                            file_name="Toys_Models_Business_Case.pdf",
-                            mime="application/pdf",
-                            key="toys_pdf"
-                        )
+                        st.download_button(label="Télécharger PDF", data=f, file_name="Toys_Models_Case.pdf", mime="application/pdf", key="toys_pdf")
 
         with col_viz:
-            # Affichage des images (Ventes en principal, thumbnails en dessous)
             img_path = "data/images/PowerBi_Toys_and_models"
             if os.path.exists(img_path):
-                st.image(os.path.join(img_path, "Ventes.png"), caption="Pilotage de la performance commerciale", use_container_width=True)
-                
+                st.image(os.path.join(img_path, "Ventes.png"), caption="Performance commerciale", use_container_width=True)
                 sub_cols = st.columns(2)
-                with sub_cols[0]:
-                    st.image(os.path.join(img_path, "Finances.png"), caption="Analyse de rentabilité & trésorerie", use_container_width=True)
-                with sub_cols[1]:
-                    st.image(os.path.join(img_path, "RH.png"), caption="Suivi des performances RH", use_container_width=True)
+                with sub_cols[0]: st.image(os.path.join(img_path, "Finances.png"), use_container_width=True)
+                with sub_cols[1]: st.image(os.path.join(img_path, "RH.png"), use_container_width=True)
+
+    with tabs[1]:
+        st.markdown('<div class="project-header"><h2>Optima Cycles - Étude d\'implantation</h2></div>', unsafe_allow_html=True)
+        st.markdown("""
+        <div class="insight-header">
+            <h4>Vision Stratégique</h4>
+            <p style="margin:0; font-size: 1.15rem; color: #0f172a; font-weight: 500;">
+                Valider l'ouverture d'un point de vente par la donnée : Ciblage Californie, segment 35-64 ans.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+        col_text, col_viz = st.columns([1.2, 1], gap="large")
+        with col_text:
+            st.markdown('<p class="section-title">Indicateurs de Performance</p>', unsafe_allow_html=True)
+            st.markdown("""
+            | KPI | Valeur | Impact |
+            | :--- | :--- | :--- |
+            | **Profit Global** | **$6.0 M** | Performance robuste en Californie. |
+            | **Taux de Marge** | **44,0 %** | Rentabilité élevée. |
+            """)
+
+            tags = ["Power BI", "DAX", "Market Analysis", "Business Strategy"]
+            tag_html = "".join([f'<span class="tag">{tag}</span>' for tag in tags])
+            st.markdown(f'<div style="margin-bottom: 25px;">{tag_html}</div>', unsafe_allow_html=True)
+            st.info("💡 Fichier .pbix disponible.")
+
+            btn_col1, btn_col2 = st.columns([1, 1])
+            with btn_col1:
+                st.markdown(f'<a href="https://github.com/BYRic-F" target="_blank" class="github-btn" style="width:100%; text-align:center;">Consulter le code</a>', unsafe_allow_html=True)
+            with btn_col2:
+                pdf_path = "data/presentations_pdf/Optima_cycle/Power_Point_Presentation.pdf"
+                if os.path.exists(pdf_path):
+                    with open(pdf_path, "rb") as f:
+                        st.download_button(label="Télécharger PDF", data=f, file_name="Optima_Strategy.pdf", mime="application/pdf", key="optima_pdf")
+
+        with col_viz:
+            img_path = "data/images/Power_bi_Optima_Cycles"
+            if os.path.exists(img_path):
+                st.image(os.path.join(img_path, "performance-du-marché.png"), use_container_width=True)
+                sub_cols = st.columns(2)
+                with sub_cols[0]: st.image(os.path.join(img_path, "profiling-segementation-produits.png"), use_container_width=True)
+                with sub_cols[1]: st.image(os.path.join(img_path, "execution-et-pilotage.png"), use_container_width=True)
+
+    with tabs[2]:
+        st.markdown('<div class="project-header"><h2>Stratégie Data-Driven : Accès Universel à l\'Eau</h2></div>', unsafe_allow_html=True)
+        st.markdown("""
+        <div class="insight-header">
+            <h4>Mission Humanitaire</h4>
+            <p style="margin:0; font-size: 1.15rem; color: #0f172a; font-weight: 500;">
+                Optimiser l'allocation des fonds de l'ONG <b>World Vision</b> par une analyse décisionnelle.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+        col_text, col_viz = st.columns([1.2, 1], gap="large")
+        with col_text:
+            st.markdown('<p class="section-title">Indicateurs & Décision</p>', unsafe_allow_html=True)
+            st.markdown("""
+            | Métrique | Observation | Recommandation |
+            | :--- | :--- | :--- |
+            | **Écart Rural** | **-32 %** d'accès. | Forages solaires autonomes. |
+            | **Risque Vital** | **101/100k** décès. | Unités de purification mobiles. |
+            """)
+
+            st.markdown('<p class="section-title">Rigueur d\'Analyste & Biais</p>', unsafe_allow_html=True)
+            st.markdown("""
+            - ⏳ **Biais Temporel** : Données 2016. Mise à jour OMS 2024-2025 indispensable.
+            - 🛡️ **Vigilance Conflit** : Sous-déclaration possible (Tchad, Somalie).
+            """)
+
+            tags = ["Power BI", "NGO Strategy", "Social Impact", "DAX"]
+            tag_html = "".join([f'<span class="tag">{tag}</span>' for tag in tags])
+            st.markdown(f'<div style="margin-bottom: 25px;">{tag_html}</div>', unsafe_allow_html=True)
+            st.info("💡 Fichier .pbix disponible.")
+
+            btn_col1, btn_col2 = st.columns([1, 1])
+            with btn_col1:
+                st.markdown(f'<a href="https://github.com/BYRic-F" target="_blank" class="github-btn" style="width:100%; text-align:center;">Consulter le code</a>', unsafe_allow_html=True)
+            with btn_col2:
+                pdf_path = "data/presentations_pdf/Acces_eau/Présentation_projet_eau.pdf"
+                if os.path.exists(pdf_path):
+                    with open(pdf_path, "rb") as f:
+                        st.download_button(label="Télécharger PDF", data=f, file_name="World_Vision_Eau.pdf", mime="application/pdf", key="eau_pdf")
+
+        with col_viz:
+            img_path = "data/images/PowerBi_acces_eau"
+            if os.path.exists(img_path):
+                st.image(os.path.join(img_path, "Vue_monde.png"), use_container_width=True)
+                sub_cols = st.columns(2)
+                with sub_cols[0]: st.image(os.path.join(img_path, "Vue_region.png"), use_container_width=True)
+                with sub_cols[1]: st.image(os.path.join(img_path, "Vue_pays.png"), use_container_width=True)
+
+    with tabs[3]:
+        st.markdown('<div class="project-header"><h2>Gaming Market Intelligence</h2></div>', unsafe_allow_html=True)
+        st.markdown("""
+        <div class="insight-header">
+            <h4>Mission de Conseil</h4>
+            <p style="margin:0; font-size: 1.15rem; color: #0f172a; font-weight: 500;">
+                Accompagner un éditeur dans la sécurisation d'un investissement majeur (83k titres).
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+        col_text, col_viz = st.columns([1.2, 1], gap="large")
+        with col_text:
+            st.markdown('<p class="section-title">Seuils de Succès</p>', unsafe_allow_html=True)
+            st.markdown("""
+            - **Metacritic ≥ 79** | Visibilité critique.
+            - **Prix : 50,00 €** | Positionnement Premium.
+            """)
+
+            tags = ["Power BI", "Python", "DAX", "Market Intelligence"]
+            tag_html = "".join([f'<span class="tag">{tag}</span>' for tag in tags])
+            st.markdown(f'<div style="margin-bottom: 25px;">{tag_html}</div>', unsafe_allow_html=True)
+            st.info("💡 Fichier .pbix disponible.")
+
+            btn_col1, btn_col2 = st.columns([1, 1])
+            with btn_col1:
+                st.markdown(f'<a href="https://github.com/BYRic-F/VideoGame-Market" target="_blank" class="github-btn" style="width:100%; text-align:center;">Consulter le code</a>', unsafe_allow_html=True)
+            with btn_col2:
+                pdf_path = "data/presentations_pdf/Video_game_market/Presentation_video_game.pdf"
+                if os.path.exists(pdf_path):
+                    with open(pdf_path, "rb") as f:
+                        st.download_button(label="Télécharger PDF", data=f, file_name="Gaming_Strategy.pdf", mime="application/pdf", key="gaming_pdf")
+
+        with col_viz:
+            img_path = "data/images/Power_BI_Video_game_market"
+            if os.path.exists(img_path):
+                st.image(os.path.join(img_path, "Choix stratégique.png"), use_container_width=True)
+                sub_cols = st.columns(2)
+                with sub_cols[0]: st.image(os.path.join(img_path, "Santé du marché.png"), use_container_width=True)
+                with sub_cols[1]: st.image(os.path.join(img_path, "Leviers de rentabilité.png"), use_container_width=True)
 
 elif selected == "Mon CV":
     st.markdown('<h1 class="main-title" style="text-align:left; font-size: 3rem !important;">Profil & Expertise</h1>', unsafe_allow_html=True)
-    
     cv_dir = "data/CV"
     cv_files = [f for f in os.listdir(cv_dir) if f.lower().endswith(".pdf")]
     
     if cv_files:
         cv_path = os.path.join(cv_dir, cv_files[0])
-        
-        with open(cv_path, "rb") as f:
-            pdf_bytes = f.read()
-        
-        col_btn1, col_btn2 = st.columns([1, 1])
-        with col_btn1:
-            st.download_button(
-                label="📥 Télécharger le CV (PDF)",
-                data=pdf_bytes,
-                file_name="CV_Frédéric_Bayen.pdf",
-                mime="application/pdf"
-            )
-        
-        doc = fitz.open(cv_path)
-        
-        # Container stylisé pour le CV
-        st.markdown('<div style="margin-top: 30px; border: 1px solid #e2e8f0;">', unsafe_allow_html=True)
-        for page in doc:
-            pix = page.get_pixmap(matrix=fitz.Matrix(2, 2))
-            img_data = pix.tobytes("png")
-            st.image(img_data, use_container_width=True)
-        st.markdown('</div>', unsafe_allow_html=True)
-        doc.close()
+        col_left, col_cv, col_right = st.columns([0.75, 1.5, 0.75])
+        with col_cv:
+            with open(cv_path, "rb") as f:
+                pdf_bytes = f.read()
+            st.markdown("""
+            <div style="background: #f8fafc; padding: 2rem; border-radius: 4px; border: 1px solid #e2e8f0; margin-bottom: 2rem; text-align: center;">
+                <h3 style="margin-top:0; color: #0f172a;">Prêt pour de nouveaux défis</h3>
+                <p style="color: #64748b; font-size: 1.1rem; max-width: 600px; margin: 0 auto 1.5rem auto;">
+                    Expertise technique (Python/SQL) et vision stratégique BI.
+                </p>
+            </div>
+            """, unsafe_allow_html=True)
+            # Affichage du CV
+            doc = fitz.open(cv_path)
+            st.markdown('<div style="margin-top: 20px; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);">', unsafe_allow_html=True)
+            for page in doc:
+                pix = page.get_pixmap(matrix=fitz.Matrix(1.3, 1.3))
+                img_data = pix.tobytes("png")
+                st.image(img_data, use_container_width=True)
+            st.markdown('</div>', unsafe_allow_html=True)
+            
+            st.write(" ")
+            # Centrage millimétré du bouton
+            btn_col_left, btn_col_mid, btn_col_right = st.columns([1, 1, 1])
+            with btn_col_mid:
+                st.download_button(
+                    label="Télécharger le CV complet (PDF)", 
+                    data=pdf_bytes, 
+                    file_name="CV_Frédéric_Bayen.pdf", 
+                    mime="application/pdf", 
+                    use_container_width=True
+                )
+            doc.close()
 
-# Footer
-st.markdown(f'<div class="footer-text">Frédéric Bayen • Data Strategy Expert • 2026<br>Propulsé par Streamlit & Expertise</div>', unsafe_allow_html=True)
+st.markdown(f'<div class="footer-text">Frédéric Bayen • Data Strategy • 2026<br>Propulsé par Streamlit</div>', unsafe_allow_html=True)

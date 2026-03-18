@@ -157,6 +157,43 @@ h1, h2, h3 {
     background: var(--bg-subtle);
 }
 
+/* Tabs Styling - Option A: Pills (Modern & Technical) */
+.stTabs [data-baseweb="tab-list"] {
+    gap: 12px;
+    border-bottom: none !important;
+    margin-bottom: 2rem;
+}
+
+.stTabs [data-baseweb="tab"] {
+    height: 42px;
+    white-space: pre;
+    background-color: var(--bg-subtle);
+    border-radius: 4px;
+    color: var(--text-muted);
+    font-size: 0.7rem !important;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    padding: 0 1.5rem;
+    border: 1px solid var(--border);
+    transition: all 0.2s ease;
+}
+
+.stTabs [aria-selected="true"] {
+    background-color: var(--primary) !important;
+    color: white !important;
+    border-color: var(--primary) !important;
+}
+
+.stTabs [data-baseweb="tab"]:hover {
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+.stTabs [data-baseweb="tab-border"] {
+    display: none;
+}
+
 /* Hide Streamlit elements */
 #MainMenu {visibility: hidden;}
 header {visibility: hidden;}

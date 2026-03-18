@@ -143,7 +143,7 @@ if selected == "Accueil":
 
 elif selected == "Projets Python":
     st.markdown('<h1 class="main-title" style="text-align:left; font-size: 3rem !important;">Data Solutions Python</h1>', unsafe_allow_html=True)
-    tabs = st.tabs(["🛡️ Détection de fraudes", "🔍 Insee Prospector", "🎬 Movie Reco"])
+    tabs = st.tabs(["DÉTECTION DE FRAUDES", "IA PROSPECTOR", "MOTEUR DE RECOMMANDATION HYBRIDE"])
     
     with tabs[0]:
         st.markdown('<div class="project-header"><h2>Détection de fraudes en temps réel</h2></div>', unsafe_allow_html=True)
@@ -169,7 +169,7 @@ elif selected == "Projets Python":
             | :--- | :--- | :--- |
             | **Recall (Le Bouclier)** | **87 %** | Interception de la grande majorité des fraudes. |
             | **Spécificité (La Fluidité)** | **99,4 %** | Moins de 1% de clients honnêtes impactés. |
-            | **Latence (La Vitesse)** | **< 100ms** | Décision instantanée, transparence totale. |
+            | **Latence (La Vitesse)** | **< 30ms** | Décision instantanée, transparence totale. |
             """)
 
             st.markdown('<p class="section-title">L\'Approche Technique (MLOps)</p>', unsafe_allow_html=True)
@@ -207,32 +207,124 @@ elif selected == "Projets Python":
                     st.image(os.path.join(img_path, "prefect2 (1).gif"), caption="MLOps (Prefect)", use_container_width=True)
         
     with tabs[1]:
-        display_project_card(
-            "IA Prospector - Insee",
-            "Gain de temps massif pour les équipes commerciales : 100% de succès sur les segments testés.",
-            "Solution de prospection ciblée pour cabinet de recrutement (RH Performances).",
-            "Éliminer 90% du bruit des bases SIRENE pour isoler les prospects à fort potentiel.",
-            "Intelligence artificielle (Gemini) pour le ciblage NAF et script d'extraction Sirene automatisé.",
-            ["Gemini AI", "Streamlit", "API Insee", "OSINT"],
-            "data/images/Python_Inspector_insee",
-            github_url="https://inseeprospectorcloud.streamlit.app/"
-        )
+        st.markdown('<div class="project-header"><h2>IA Prospector - Insee</h2></div>', unsafe_allow_html=True)
+        
+        # Storytelling Hook
+        st.markdown("""
+        <div class="insight-header">
+            <h4>Le Défi Business</h4>
+            <p style="margin:0; font-size: 1.15rem; color: #0f172a; font-weight: 500;">
+                <b>Enrichir la base CRM de RH Performances</b> grâce à un ciblage automatisé et intelligent, permettant d'isoler les prospects à fort potentiel en éliminant 90 % du bruit des bases SIRENE.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+        col_text, col_viz = st.columns([1.2, 1], gap="large")
+        
+        with col_text:
+            st.markdown('<p class="section-title">Performance & Expertise</p>', unsafe_allow_html=True)
+            st.markdown("""
+            | Métrique | Impact |
+            | :--- | :--- |
+            | **Efficacité de Ciblage** | **100% de succès** sur 50 tests sectoriels intensifs. |
+            | **Précision IA** | Traduction sémantique des métiers en **codes NAF techniques**. |
+            | **Modèles** | Architectures hybrides **Gemini 3 & 3.1 Flash-Lite**. |
+            """)
+
+            st.markdown('<p class="section-title">Ingénierie de Précision</p>', unsafe_allow_html=True)
+            st.markdown("""
+            Conçu pour répondre aux exigences critiques d'un cabinet de recrutement (RH Performances) :
+            - **Nomenclature NAF 2008** : Scan intelligent de **1700+ codes NAF** pour garantir une compatibilité à 100% avec l'API Sirene réelle.
+            - **Batching Intelligent** : Découpage dynamique des requêtes pour les zones denses (Paris, Lyon, Marseille) afin d'éviter la saturation de l'API.
+            - **Optimisation mobile (OSINT)** : Transformation automatique des numéros en **liens cliquables (tel:)** pour une prospection directe sur smartphone.
+            """)
+
+            # Tags & Buttons
+            st.markdown('<p class="section-title">Technologies</p>', unsafe_allow_html=True)
+            tags = ["Gemini AI", "Streamlit", "API Insee", "OSINT", "Python", "NAF 2008", "Data Engineering"]
+            tag_html = "".join([f'<span class="tag">{tag}</span>' for tag in tags])
+            st.markdown(f'<div style="margin-bottom: 25px;">{tag_html}</div>', unsafe_allow_html=True)
+            
+            btn_col1, btn_col2 = st.columns([1, 1])
+            with btn_col1:
+                st.markdown(f'<a href="https://github.com/BYRic-F/Insee_prospector_cloud" target="_blank" class="github-btn" style="width:100%; text-align:center;">Consulter le code</a>', unsafe_allow_html=True)
+            with btn_col2:
+                st.markdown(f'<a href="https://inseeprospectorcloud.streamlit.app/" target="_blank" class="github-btn" style="width:100%; text-align:center;">Accéder à l\'application</a>', unsafe_allow_html=True)
+
+        with col_viz:
+            # Affichage des images (GIF en principal, screenshots en dessous)
+            img_path = "data/images/Python_Inspector_insee"
+            if os.path.exists(img_path):
+                st.image(os.path.join(img_path, "demonstration_insee.gif"), caption="Démonstration du ciblage intelligent", use_container_width=True)
+                
+                sub_cols = st.columns(2)
+                with sub_cols[0]:
+                    st.image(os.path.join(img_path, "Page_accueil1.png"), caption="Interface d'accueil & export CRM", use_container_width=True)
+                with sub_cols[1]:
+                    st.image(os.path.join(img_path, "Page_graphique2.png"), caption="Analyses géographiques & ectorielles", use_container_width=True)
 
     with tabs[2]:
-        display_project_card(
-            "PicquePoule - Recommender",
-            "Recommandations ultra-pertinentes dès la première utilisation via onboarding interactif.",
-            "Système hybride de recommandation de films pour plateforme de streaming.",
-            "Surmonter le 'Cold Start' et gérer la complexité sémantique des résumés (NLP).",
-            "Modèle hybride NLP (SpaCy) et SVD. Optimisation des requêtes via DuckDB.",
-            ["NLP", "SpaCy", "DuckDB", "SVD"],
-            "data/images/Python_Recommandations_films",
-            github_url="https://byric-f-project-reco-movie-streamlit-app-3pm0kb.streamlit.app/"
-        )
+        st.markdown('<div class="project-header"><h2>Système de recommandation hybride (Content & Collaborative)</h2></div>', unsafe_allow_html=True)
+        
+        # Storytelling Hook
+        st.markdown("""
+        <div class="insight-header">
+            <h4>Le Défi Business</h4>
+            <p style="margin:0; font-size: 1.15rem; color: #0f172a; font-weight: 500;">
+                Maximiser la rétention utilisateur en proposant des recommandations ultra-pertinentes dès la première connexion, 
+                en résolvant le problème critique du <b>"Cold Start"</b>.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+        col_text, col_viz = st.columns([1.2, 1], gap="large")
+        
+        with col_text:
+            st.markdown('<p class="section-title">Performance & Innovation</p>', unsafe_allow_html=True)
+            st.markdown("""
+            | Métrique | Impact |
+            | :--- | :--- |
+            | **Catalogue** | **10 000+ titres** premium rigoureusement filtrés. |
+            | **Authentification** | **Adaptation de l'interface Streamlit** pour débloquer les fonctionnalités avancées du modèle SVD uniquement pour les utilisateurs authentifiés.|
+            | **Algorithme** | Système **hybride** (KNN Sémantique + SVD collaboratif). |
+            | **Temps réel** | Projection instantanée du profil dans l'espace latent. |            
+            """)
+
+            st.markdown('<p class="section-title">Ingénierie de la Donnée</p>', unsafe_allow_html=True)
+            st.markdown("""
+            Pipeline ETL complet pour transformer des données brutes massives en un moteur fluide :
+            - **Hybride KNN/SVD** : Combinaison de la similarité cosinus sur les résumés (**SpaCy**) et de la décomposition en valeurs singulières (**Surprise SVD**).
+            - **Optimisation DuckDB** : Traitement SQL haute performance pour gérer des bases de données lourdes sans saturation RAM.
+            - **Résolution du "Cold Start"** : Interface d'onboarding interactive imposant la notation de 5 films dès l'inscription pour alimenter l'algorithme SVD et garantir des recommandations personnalisées immédiates.
+            """)
+
+            # Tags & Buttons
+            st.markdown('<p class="section-title">Technologies</p>', unsafe_allow_html=True)
+            tags = ["NLP", "SpaCy", "DuckDB", "SVD", "KNN", "Python", "ETL", "Streamlit", "Scikit-Learn"]
+            tag_html = "".join([f'<span class="tag">{tag}</span>' for tag in tags])
+            st.markdown(f'<div style="margin-bottom: 25px;">{tag_html}</div>', unsafe_allow_html=True)
+            
+            btn_col1, btn_col2 = st.columns([1, 1])
+            with btn_col1:
+                st.markdown(f'<a href="https://github.com/BYRic-F" target="_blank" class="github-btn" style="width:100%; text-align:center;">Consulter le code</a>', unsafe_allow_html=True)
+            with btn_col2:
+                st.markdown(f'<a href="https://byric-f-project-reco-movie-streamlit-app-3pm0kb.streamlit.app/" target="_blank" class="github-btn" style="width:100%; text-align:center;">Tester l\'application</a>', unsafe_allow_html=True)
+
+        with col_viz:
+            # Affichage des images (GIF en principal, screenshots en dessous)
+            img_path = "data/images/Python_Recommandations_films"
+            if os.path.exists(img_path):
+                st.image(os.path.join(img_path, "Python_recommandations films.gif"), caption="Expérience utilisateur & Recommandations", use_container_width=True)
+                
+                sub_cols = st.columns(2)
+                with sub_cols[0]:
+                    st.image(os.path.join(img_path, "Page_d_accueil.png"), caption="Page d'accueil", use_container_width=True)
+                with sub_cols[1]:
+                    st.image(os.path.join(img_path, "Resultat_recherche.png"), caption="Analyse sémantique & détails", use_container_width=True)
 
 elif selected == "Projets Power BI":
     st.markdown('<h1 class="main-title" style="text-align:left; font-size: 3rem !important;">Strategic BI</h1>', unsafe_allow_html=True)
-    tabs = st.tabs(["🚲 Optima Cycles", "🎮 Gaming Market", "🚰 Water Mission", "🧸 Toys & Models"])
+    tabs = st.tabs(["OPTIMA CYCLES", "GAMING INTELLIGENCE", "MISSION HUMANITAIRE", "PILOTAGE 360°"])
     
     with tabs[0]:
         display_project_card(

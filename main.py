@@ -268,6 +268,7 @@ elif selected == "Projets Python":
             tags = ["NLP", "SpaCy", "DuckDB", "SVD", "KNN", "Python", "ETL", "Streamlit", "Scikit-Learn"]
             tag_html = "".join([f'<span class="tag">{tag}</span>' for tag in tags])
             st.markdown(f'<div style="margin-bottom: 25px;">{tag_html}</div>', unsafe_allow_html=True)
+            st.info("💡 Les identifiants pour tester l'application sont : Username : test500 / Password : test500")
             
             btn_col1, btn_col2 = st.columns([1, 1])
             with btn_col1:
@@ -292,9 +293,9 @@ elif selected == "Projets Python":
 
 elif selected == "Projets Power BI":
     st.markdown('<h1 class="main-title" style="text-align:left; font-size: 3rem !important;">Strategic BI</h1>', unsafe_allow_html=True)
-    tabs = st.tabs(["TOYS & MODELS", "OPTIMA CYCLES", "MISSION HUMANITAIRE","GAMING INTELLIGENCE"])
+    tabs = st.tabs(["OPTIMA CYCLES", "TOYS & MODELS", "MISSION HUMANITAIRE","GAMING INTELLIGENCE"])
     
-    with tabs[1]:
+    with tabs[0]:
         st.markdown('<div class="project-header"><h2>Optima Cycles - Étude d\'implantation</h2></div>', unsafe_allow_html=True)
         
         # Storytelling Hook
@@ -531,7 +532,7 @@ elif selected == "Projets Power BI":
                 with sub_cols[1]:
                     st.image(os.path.join(img_path, "Vue_pays.png"), caption="Priorisation par pays (Risque vital)", width="stretch")
 
-    with tabs[0]:
+    with tabs[1]:
         st.markdown('<div class="project-header"><h2>Toys & Models - Pilotage 360°</h2></div>', unsafe_allow_html=True)
         
         # Storytelling Hook

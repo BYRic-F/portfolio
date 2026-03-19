@@ -41,10 +41,10 @@ if selected == "Accueil":
     
     col1, col2 = st.columns([0.8, 2], gap="large")
     with col1:
-        photo_path = "data/CV/photo_profil_redimenssionnee.png"
+        photo_path = "data/CV/photo_profil_redimenssionnee.webp"
         if os.path.exists(photo_path):
             st.markdown('<div class="profile-img-container">', unsafe_allow_html=True)
-            st.image(photo_path, width="stretch")
+            st.image(photo_path, width="stretch", output_format="png")
             st.markdown('</div>', unsafe_allow_html=True)
         
         st.markdown("<br>", unsafe_allow_html=True)
@@ -218,9 +218,9 @@ elif selected == "Projets Python":
                 
                 sub_cols = st.columns(2)
                 with sub_cols[0]:
-                    st.image(os.path.join(img_path, "Page_accueil1.png"), caption="Interface d'accueil & export CRM", width="stretch")
+                    st.image(os.path.join(img_path, "Page_accueil1.webp"), caption="Interface d'accueil & export CRM", width="stretch", output_format="png")
                 with sub_cols[1]:
-                    st.image(os.path.join(img_path, "Page_graphique2.png"), caption="Analyses géographiques & sectorielles", width="stretch")
+                    st.image(os.path.join(img_path, "Page_graphique2.webp"), caption="Analyses géographiques & sectorielles", width="stretch", output_format="png")
 
     with tabs[2]:
         st.markdown('<div class="project-header"><h2>Système de recommandation hybride (Content & collaborative)</h2></div>', unsafe_allow_html=True)
@@ -287,9 +287,9 @@ elif selected == "Projets Python":
                 
                 sub_cols = st.columns(2)
                 with sub_cols[0]:
-                    st.image(os.path.join(img_path, "Page_d_accueil.png"), caption="Page d'accueil", width="stretch")
+                    st.image(os.path.join(img_path, "Page_d_accueil.webp"), caption="Page d'accueil", width="stretch", output_format="png")
                 with sub_cols[1]:
-                    st.image(os.path.join(img_path, "Resultat_recherche.png"), caption="Analyse sémantique & détails", width="stretch")
+                    st.image(os.path.join(img_path, "Resultat_recherche.webp"), caption="Analyse sémantique & détails", width="stretch", output_format="png")
 
 elif selected == "Projets Power BI":
     st.markdown('<h1 class="main-title" style="text-align:left; font-size: 3rem !important;">Strategic BI</h1>', unsafe_allow_html=True)
@@ -365,13 +365,13 @@ elif selected == "Projets Power BI":
             # Affichage des images (Performance en principal, thumbnails en dessous)
             img_path = "data/images/Power_bi_Optima_Cycles"
             if os.path.exists(img_path):
-                st.image(os.path.join(img_path, "performance-du-marché.png"), caption="Analyse de performance & saisonnalité", width="stretch")
+                st.image(os.path.join(img_path, "performance-du-marché.webp"), caption="Analyse de performance & saisonnalité", width="stretch", output_format="png")
                 
                 sub_cols = st.columns(2)
                 with sub_cols[0]:
-                    st.image(os.path.join(img_path, "profiling-segementation-produits.png"), caption="Profiling & segmentation", width="stretch")
+                    st.image(os.path.join(img_path, "profiling-segementation-produits.webp"), caption="Profiling & segmentation", width="stretch", output_format="png")
                 with sub_cols[1]:
-                    st.image(os.path.join(img_path, "execution-et-pilotage.png"), caption="Exécution & plan de route", width="stretch")
+                    st.image(os.path.join(img_path, "execution-et-pilotage.webp"), caption="Exécution & plan de route", width="stretch", output_format="png")
 
     with tabs[3]:
         st.markdown('<div class="project-header"><h2>Gaming Market intelligence</h2></div>', unsafe_allow_html=True)
@@ -444,13 +444,13 @@ elif selected == "Projets Power BI":
             # Affichage des images (Choix stratégique en principal, thumbnails en dessous)
             img_path = "data/images/Power_BI_Video_game_market"
             if os.path.exists(img_path):
-                st.image(os.path.join(img_path, "Choix stratégique.png"), caption="Recommandation Business Plan & LTV", width="stretch")
+                st.image(os.path.join(img_path, "Choix stratégique.webp"), caption="Recommandation Business Plan & LTV", width="stretch", output_format="png")
                 
                 sub_cols = st.columns(2)
                 with sub_cols[0]:
-                    st.image(os.path.join(img_path, "Santé du marché.png"), caption="Diagnostic : Saturation & prix", width="stretch")
+                    st.image(os.path.join(img_path, "Santé du marché.webp"), caption="Diagnostic : Saturation & prix", width="stretch", output_format="png")
                 with sub_cols[1]:
-                    st.image(os.path.join(img_path, "Leviers de rentabilité.png"), caption="Analyse de la qualité & saisonnalité", width="stretch")
+                    st.image(os.path.join(img_path, "Leviers de rentabilité.webp"), caption="Analyse de la qualité & saisonnalité", width="stretch", output_format="png")
 
     with tabs[2]:
         st.markdown('<div class="project-header"><h2>Stratégie Data-Driven : Analyse décisionnelle pour l\'accès à l\'eau</h2></div>', unsafe_allow_html=True)
@@ -524,13 +524,13 @@ elif selected == "Projets Power BI":
             # Affichage des images (Vue Monde en principal, thumbnails en dessous)
             img_path = "data/images/PowerBi_acces_eau"
             if os.path.exists(img_path):
-                st.image(os.path.join(img_path, "Vue_monde.png"), caption="Analyse mondiale & corrélations politiques", width="stretch")
+                st.image(os.path.join(img_path, "Vue_monde.webp"), caption="Analyse mondiale & corrélations politiques", width="stretch", output_format="png")
                 
                 sub_cols = st.columns(2)
                 with sub_cols[0]:
-                    st.image(os.path.join(img_path, "Vue_region.png"), caption="Focus Afrique & fractures rurales", width="stretch")
+                    st.image(os.path.join(img_path, "Vue_region.webp"), caption="Focus Afrique & fractures rurales", width="stretch", output_format="png")
                 with sub_cols[1]:
-                    st.image(os.path.join(img_path, "Vue_pays.png"), caption="Priorisation par pays (Risque vital)", width="stretch")
+                    st.image(os.path.join(img_path, "Vue_pays.webp"), caption="Priorisation par pays (Risque vital)", width="stretch", output_format="png")
 
     with tabs[1]:
         st.markdown('<div class="project-header"><h2>Toys & Models - Pilotage 360°</h2></div>', unsafe_allow_html=True)
@@ -609,13 +609,13 @@ elif selected == "Projets Power BI":
             # Affichage des images (Ventes en principal, thumbnails en dessous)
             img_path = "data/images/PowerBi_Toys_and_models"
             if os.path.exists(img_path):
-                st.image(os.path.join(img_path, "Ventes.png"), caption="Pilotage de la performance commerciale", width="stretch")
+                st.image(os.path.join(img_path, "Ventes.webp"), caption="Pilotage de la performance commerciale", width="stretch", output_format="png")
                 
                 sub_cols = st.columns(2)
                 with sub_cols[0]:
-                    st.image(os.path.join(img_path, "Finances.png"), caption="Analyse de rentabilité & trésorerie", width="stretch")
+                    st.image(os.path.join(img_path, "Finances.webp"), caption="Analyse de rentabilité & trésorerie", width="stretch", output_format="png")
                 with sub_cols[1]:
-                    st.image(os.path.join(img_path, "RH.png"), caption="Suivi des performances RH", width="stretch")
+                    st.image(os.path.join(img_path, "RH.webp"), caption="Suivi des performances RH", width="stretch", output_format="png")
 
 elif selected == "Mon CV":
     st.markdown('<h1 class="main-title" style="text-align:left; font-size: 3rem !important;">Profil & expertise</h1>', unsafe_allow_html=True)
@@ -646,7 +646,7 @@ elif selected == "Mon CV":
             for page in doc:
                 pix = page.get_pixmap(matrix=fitz.Matrix(1.3, 1.3))
                 img_data = pix.tobytes("png")
-                st.image(img_data, width="stretch")
+                st.image(img_data, width="stretch", output_format="png")
             st.markdown('</div>', unsafe_allow_html=True)
             
             st.write(" ")

@@ -145,6 +145,8 @@ elif selected == "Projets Python":
                 st.markdown(f'<a href="https://www.youtube.com/watch?v=oukKv2ohZn0" target="_blank" class="github-btn" style="width:100%; text-align:center;">Démonstration Vidéo</a>', unsafe_allow_html=True)
 
         with col_viz:
+            st.write("") 
+            st.write("")# Spacer
             # Affichage des GIFs avec la disposition d'origine (un grand, les autres en dessous)
             img_path = "data/images/Python_detection_fraudes"
             if os.path.exists(img_path):
@@ -207,6 +209,8 @@ elif selected == "Projets Python":
                 st.markdown(f'<a href="https://inseeprospectorcloud.streamlit.app/" target="_blank" class="github-btn" style="width:100%; text-align:center;">Accéder à l\'application</a>', unsafe_allow_html=True)
 
         with col_viz:
+            st.write("") 
+            st.write("")# Spacer
             # Affichage des images (GIF en principal, screenshots en dessous)
             img_path = "data/images/Python_Inspector_insee"
             if os.path.exists(img_path):
@@ -272,6 +276,9 @@ elif selected == "Projets Python":
                 st.markdown(f'<a href="https://byric-f-project-reco-movie-streamlit-app-3pm0kb.streamlit.app/" target="_blank" class="github-btn" style="width:100%; text-align:center;">Accéder à l\'application</a>', unsafe_allow_html=True)
 
         with col_viz:
+            st.write("") 
+            st.write("")# Spacer
+            st.write("")
             # Affichage des images (GIF en principal, screenshots en dessous)
             img_path = "data/images/Python_Recommandations_films"
             if os.path.exists(img_path):
@@ -352,6 +359,8 @@ elif selected == "Projets Power BI":
                         )
 
         with col_viz:
+            st.write("") 
+            st.write("")# Spacer
             # Affichage des images (Performance en principal, thumbnails en dessous)
             img_path = "data/images/Power_bi_Optima_Cycles"
             if os.path.exists(img_path):
@@ -429,6 +438,8 @@ elif selected == "Projets Power BI":
                         )
 
         with col_viz:
+            st.write("") 
+            st.write("")# Spacer
             # Affichage des images (Choix stratégique en principal, thumbnails en dessous)
             img_path = "data/images/Power_BI_Video_game_market"
             if os.path.exists(img_path):
@@ -507,6 +518,8 @@ elif selected == "Projets Power BI":
                         )
 
         with col_viz:
+            st.write("") 
+            st.write("")# Spacer            
             # Affichage des images (Vue Monde en principal, thumbnails en dessous)
             img_path = "data/images/PowerBi_acces_eau"
             if os.path.exists(img_path):
@@ -590,6 +603,8 @@ elif selected == "Projets Power BI":
                         )
 
         with col_viz:
+            st.write("") 
+            st.write("")# Spacer            
             # Affichage des images (Ventes en principal, thumbnails en dessous)
             img_path = "data/images/PowerBi_Toys_and_models"
             if os.path.exists(img_path):
